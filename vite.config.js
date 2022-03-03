@@ -78,7 +78,11 @@ export default ({ mode }) => {
       vue(),
       //提供傳統瀏覽器兼容
       legacy({
-        targets: ['ie >= 11'],
+        // browserslist: [
+        //   "defaults",
+        //   "not IE 11"
+        // ],
+        targets: ['defaults', 'not IE 11'],
         additionalLegacyPolyfills: ['regenerator-runtime/runtime']
       })
     ],
