@@ -7,8 +7,7 @@ import legacy from '@vitejs/plugin-legacy'
 
 export default ({ mode }) => {
   return defineConfig({
-    // base: loadEnv(mode, process.cwd()).VITE_PUBLIC,
-    base: "./",
+    base: loadEnv(mode, process.cwd()).VITE_PUBLIC,
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src'),
@@ -43,6 +42,8 @@ export default ({ mode }) => {
     build: {
       assetsDir: "./static",
       chunkSizeWarningLimit: 1500, //分塊打包 大塊分解成更小的塊
+      // 確保外部化處理那些你不想打包進庫的依賴
+      external: ['vue'],
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
@@ -55,6 +56,10 @@ export default ({ mode }) => {
             }
           }
         },
+        // 在 UMD 構建模式下為這些外部化的依賴提供一個全域性變數
+        globals: {
+          vue: 'Vue',
+        }
         //預設會有hash 如果想要保留原檔名想要取消檔名的hash時 如下
         // output: {
         //   entryFileNames: `assets/[name].js`,
