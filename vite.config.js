@@ -12,7 +12,7 @@ export default ({ mode }) => {
       alias: {
         '@': resolve(__dirname, 'src'),
         '@components': resolve(__dirname, 'src/components'),
-        '/images': 'src/assets/images'
+        '@images': resolve(__dirname, 'src/assets/images')
       },
     },
     //跨域設定
@@ -83,11 +83,7 @@ export default ({ mode }) => {
       vue(),
       //提供傳統瀏覽器兼容
       legacy({
-        // browserslist: [
-        //   "defaults",
-        //   "not IE 11"
-        // ],
-        targets: ['defaults', 'not IE 11'],
+        targets: ['> 1%, last 1 version, ie >= 11'],
         additionalLegacyPolyfills: ['regenerator-runtime/runtime']
       })
     ],

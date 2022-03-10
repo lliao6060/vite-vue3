@@ -1,15 +1,22 @@
 <script setup>
-// import HelloWorld from '@components/HelloWorld.vue'
-import TodoList from '@components/demo/todoList.vue';
+import HelloWorld from '@components/HelloWorld.vue'
+import TodoList from '@/views/demo/todoList.vue';
 
 // console.log(import.meta.env)
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
-  <h1>Hello Vue 3 + Vite todoList</h1>
-  <TodoList />
+  <div id="app">
+    <img alt="Vue logo" src="@/assets/logo.png" />
+
+    <div class="routes">
+      <router-link to="/">homePage</router-link>
+      <router-link to="/demo/todo-list">todoList</router-link>
+    </div>
+    <router-view />
+
+    <HelloWorld msg="Hello Vue 3 + Vite" />
+  </div>
 
 </template>
 
@@ -21,5 +28,10 @@ import TodoList from '@components/demo/todoList.vue';
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  .routes {
+    >a {
+      margin-right: 20px;
+    }
+  }
 }
 </style>
