@@ -1,6 +1,6 @@
 <script setup>
 // import HelloWorld from '@components/HelloWorld.vue'
-import TodoList from './components/todoList.vue';
+import TodoList from '@components/demo/todoList.vue';
 
 // console.log(import.meta.env)
 </script>
