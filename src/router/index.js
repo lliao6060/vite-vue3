@@ -7,21 +7,30 @@ let router = createRouter({
       path: "/index",
       name: "Index",
       component:  () => import('@/views/index.vue'),
+      meta: {
+        title: '首頁',
+      },
     },
     {
       path: '/demo/todo-list',
       name: 'TodoList',
-      component: () => import('@/views/demo/todoList.vue')
+      component: () => import('@/views/demo/TodoList.vue'),
+      meta: {
+        title: '代辦事項',
+      },
     },
     {
       path: '/demo/pinia',
       name: 'Pinia',
-      component: () => import('@/views/demo/pinia.vue')
+      component: () => import('@/views/demo/Pinia.vue'),
+      meta: {
+        title: 'pinia',
+      },
     },
     {
       path: '/404',
       name: 'PageNotExist',
-      component:  () => import('@/views/pageNotExist.vue'),
+      component:  () => import('@/views/PageNotExist.vue'),
     },
     {
       path: '/:catchAll(.*)',

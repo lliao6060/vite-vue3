@@ -176,7 +176,7 @@
         @include flex($justify-content: space-between);
 
         >p {
-          margin: 0;
+          margin: 5px 0;
           padding: 5px;
           border-radius: 5px;
           font-size: 0.8rem;
@@ -232,10 +232,6 @@
       text-align: left;
 
       >ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-
         >li {
           position: relative;
           padding: 10px;
@@ -271,15 +267,10 @@
 
     >p {
       border-bottom: 1px solid;
-      margin: 0;
       padding: 5px;
     }
 
     &__items {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
       >li {
         padding: 5px;
         text-align: left;

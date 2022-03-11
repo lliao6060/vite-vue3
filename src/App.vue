@@ -1,8 +1,10 @@
 <script setup>
+import Breadcrumbs from '@components/Breadcrumbs.vue';
 </script>
 
 <template>
   <div id="app">
+    <Breadcrumbs />
     <img alt="Vue logo" src="@/assets/logo.png" />
 
     <div class="routes">
@@ -17,6 +19,7 @@
 </template>
 
 <style lang="scss">
+@import 'scss-reset/_reset.scss';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
