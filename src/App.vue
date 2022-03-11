@@ -1,7 +1,4 @@
 <script setup>
-  import HelloWorld from '@components/HelloWorld.vue'
-  import TodoList from '@/views/demo/todoList.vue';
-
 </script>
 
 <template>
@@ -9,12 +6,10 @@
     <img alt="Vue logo" src="@/assets/logo.png" />
 
     <div class="routes">
-      <router-link to="/">index</router-link>
+      <router-link to="/index">index</router-link>
       <router-link to="/demo/todo-list">todoList</router-link>
       <router-link to="/demo/pinia">pinia</router-link>
     </div>
-    
-    <HelloWorld msg="Hello Vue 3 + Vite + vueRouter + pinia" />
     
     <router-view />
   </div>

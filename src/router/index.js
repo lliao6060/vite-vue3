@@ -10,21 +10,22 @@ let router = createRouter({
     },
     {
       path: '/demo/todo-list',
-      name: 'todo-list',
+      name: 'TodoList',
       component: () => import('@/views/demo/todoList.vue')
     },
     {
       path: '/demo/pinia',
-      name: 'pinia',
+      name: 'Pinia',
       component: () => import('@/views/demo/pinia.vue')
     },
     {
-      path: "/",
-      redirect:'/index',
+      path: '/404',
+      name: 'PageNotExist',
+      component:  () => import('@/views/pageNotExist.vue'),
     },
     {
       path: '/:catchAll(.*)',
-      redirect: '/index',
+      redirect: '/404',
     }
   ],
 })
