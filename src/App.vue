@@ -1,36 +1,7 @@
 <script setup>
-import { useIndexStore } from '@/store'
-import { storeToRefs, mapState } from 'pinia'
-import { computed } from 'vue-demi';
+  import HelloWorld from '@components/HelloWorld.vue'
+  import TodoList from '@/views/demo/todoList.vue';
 
-
-import HelloWorld from '@components/HelloWorld.vue'
-import TodoList from '@/views/demo/todoList.vue';
-
-const indexStore = useIndexStore()
-//可以這樣拿(解構)
-// const { count, quantity, countTotal } = storeToRefs(indexStore)
-
-
-//也可以像是vuex一樣的拿法
-computed(() => {
-  return {
-    ...mapState(useIndexStore, ['count', 'quantity', 'countTotal']),
-  }
-})
-
-//修改state中的數據
-const indexStoreChange = () => {
-  indexStore.$patch(state => {
-    state.count++
-    state.quantity++
-  })
-
-  //邏輯較多時 可以寫在actions裡 直接調用
-  // indexStore.countChange()
-}
-
-// console.log(import.meta.env)
 </script>
 
 <template>
@@ -38,17 +9,14 @@ const indexStoreChange = () => {
     <img alt="Vue logo" src="@/assets/logo.png" />
 
     <div class="routes">
-      <router-link to="/">homePage</router-link>
+      <router-link to="/">index</router-link>
       <router-link to="/demo/todo-list">todoList</router-link>
+      <router-link to="/demo/pinia">pinia</router-link>
     </div>
-    <router-view />
-
+    
     <HelloWorld msg="Hello Vue 3 + Vite + vueRouter + pinia" />
-    <p>count: {{ indexStore.count }}</p>
-    <p>quantity: {{ indexStore.quantity }}</p>
-    <p>count total: {{ indexStore.countTotal }}</p>
-
-    <button @click="indexStoreChange">修改state數據</button>
+    
+    <router-view />
   </div>
 
 </template>
