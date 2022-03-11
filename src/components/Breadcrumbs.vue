@@ -1,5 +1,5 @@
 <script setup>
-  import { computed, onMounted, reactive, watch } from 'vue';
+  import { onMounted, reactive, watch } from 'vue';
   import { useRoute } from 'vue-router'
 
   const route = useRoute()
@@ -31,7 +31,7 @@
     <ul class="breadcrumb__items">
       <li         
         v-for="(crumb, i) in state.list" 
-        :key="`item-${i}`"
+        :key="`crumb-${i}`"
         class="bread-item"
       >
         <template v-if="crumb.path === '/index'">
@@ -59,11 +59,15 @@
         a {
           text-decoration: none;
           color: #222;
+          font-weight: bold;
           &.bread-array {
             margin-right: 5px;
             >a {
+              color: #188f7e;
+              font-weight: 500;
               &:last-child {
                 font-weight: bold;
+                color: #222;
                 &::before {
                   font-weight: 300;
                 }
