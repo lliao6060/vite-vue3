@@ -46,6 +46,24 @@ let router = createRouter({
       ]
     },
     {
+      path: '/demo/news',
+      name: 'News',
+      component: () => import('@/views/demo/news/index.vue'),
+      meta: {
+        title: '新聞頁',
+      },
+      children: [
+        {
+          path: '/demo/news/news-detail/:newsId',
+          name: 'newsDetail',
+          component: () => import('@/views/demo/news/newsDetail.vue'),
+          meta: {
+            title: '內文',
+          },
+        },
+      ]
+    },
+    {
       path: '/404',
       name: 'PageNotExist',
       component:  () => import('@/views/PageNotExist.vue'),
