@@ -11,6 +11,7 @@ import Breadcrumbs from '@components/Breadcrumbs.vue';
       <router-link to="/index">index</router-link>
       <router-link to="/demo/todo-list">todoList</router-link>
       <router-link to="/demo/pinia">pinia</router-link>
+      <router-link to="/demo/nested-routes/nested-routes-parent">nested-routes-parent</router-link>
     </div>
     
     <router-view />

@@ -28,9 +28,30 @@ let router = createRouter({
       },
     },
     {
+      path: '/demo/nested-routes/nested-routes-parent',
+      name: 'NestedRoutesParent',
+      component: () => import('@/views/demo/nested-routes/NestedRoutesParent.vue'),
+      meta: {
+        title: '嵌套路由',
+      },
+      children: [
+        {
+          path: '/demo/nested-routes/nested-routes-child',
+          name: 'NestedRoutesChild',
+          component: () => import('@/views/demo/nested-routes/NestedRoutesChild.vue'),
+          meta: {
+            title: '子路由',
+          },
+        },
+      ]
+    },
+    {
       path: '/404',
       name: 'PageNotExist',
       component:  () => import('@/views/PageNotExist.vue'),
+      meta: {
+        title: '404',
+      },
     },
     {
       path: '/:catchAll(.*)',
