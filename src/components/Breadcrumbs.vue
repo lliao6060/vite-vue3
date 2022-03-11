@@ -11,7 +11,7 @@
       let matched = route.matched
       if (!isHome(matched[0])) {
         matched = [
-          { path: '/', meta: { title: '首頁' } }
+          { path: '/index', meta: { title: '首頁' } }
         ].concat(matched)
       }
       breadcrumbList.value = matched
@@ -41,8 +41,10 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .breadcrumb {
+    width: 100%;
+    @include flex($justify-content: flex-start);
     &__items {
       @include flex;
       >li {

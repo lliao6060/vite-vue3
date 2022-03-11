@@ -28,17 +28,17 @@ let router = createRouter({
       },
     },
     {
-      path: '/demo/nested-routes/nested-routes-parent',
+      path: '/demo/nested-routes/parent',
       name: 'NestedRoutesParent',
-      component: () => import('@/views/demo/nested-routes/NestedRoutesParent.vue'),
+      component: () => import('@/views/demo/nested-routes/Parent.vue'),
       meta: {
         title: '嵌套路由',
       },
       children: [
         {
-          path: '/demo/nested-routes/nested-routes-child',
+          path: '/demo/nested-routes/child',
           name: 'NestedRoutesChild',
-          component: () => import('@/views/demo/nested-routes/NestedRoutesChild.vue'),
+          component: () => import('@/views/demo/nested-routes/Child.vue'),
           meta: {
             title: '子路由',
           },
