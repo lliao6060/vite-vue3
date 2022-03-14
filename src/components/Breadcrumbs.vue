@@ -3,27 +3,27 @@
   import { useRoute } from 'vue-router'
 
   const route = useRoute()
-    const breadcrumbList = ref([])
-    const isHome = () => {
-      return route.name === 'Index'
+  const breadcrumbList = ref([])
+  const isHome = () => {
+    return route.name === 'Index'
+  }
+  const getBreadcrumbs = () => {
+    let matched = route.matched
+    if (!isHome(matched[0])) {
+      matched = [
+        { path: '/', meta: { title: '首頁' } }
+      ].concat(matched)
     }
-    const getBreadcrumbs = () => {
-      let matched = route.matched
-      if (!isHome(matched[0])) {
-        matched = [
-          { path: '/', meta: { title: '首頁' } }
-        ].concat(matched)
-      }
-      breadcrumbList.value = matched
-    }
+    breadcrumbList.value = matched
+  }
 
-    watch(route, () => {
-      getBreadcrumbs()
-    })
+  watch(route, () => {
+    getBreadcrumbs()
+  })
 
-    onMounted(() => {
-      getBreadcrumbs()
-    })
+  onMounted(() => {
+    getBreadcrumbs()
+  })
 
 </script>
 
