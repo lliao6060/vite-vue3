@@ -21,7 +21,9 @@ const router = createRouter({
 //設定每一頁的title
 router.beforeEach((to, from, next) => {
   if(to.name === 'newsDetail') {
-    const newsDetailTitle = `news-${to.query.postId}`
+    let s = to.query.postId
+    s = s.replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3');
+    const newsDetailTitle = `news-${s}`
     window.document.title = newsDetailTitle
     next()
   } else {
