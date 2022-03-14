@@ -48,7 +48,7 @@ const getNewsDetail = async (id) => {
 
   router.push({
     name: 'newsDetail',
-    params: {
+    query: {
       postId: id
     },
   });

@@ -6,11 +6,11 @@ import { useRoute, useRouter } from 'vue-router';
 const router = useRouter()
 const route = useRoute()
 
-const initPage = () => {
-  router.push({
-    name: 'Index'
-  })
-}
+// const initPage = () => {
+//   router.push({
+//     name: 'Index'
+//   })
+// }
 
 const showParams = () => {
   console.log(route.path)
@@ -22,7 +22,7 @@ watch(route, () => {
 })
 
 
-initPage()
+// initPage()
 
 
 
@@ -33,15 +33,19 @@ initPage()
     <Breadcrumbs />
     <header>
       <div class="routes">
-        <router-link to="/index">index</router-link>
-        <router-link to="/demo/todo-list">todoList</router-link>
-        <router-link to="/demo/pinia">pinia</router-link>
-        <router-link to="/demo/nested-routes/parent">nested routes</router-link>
-        <router-link to="/demo/news">news</router-link>
+        <router-link :to="{ name: 'Index' }">index</router-link>
+        <router-link :to="{ name: 'TodoList' }">todoList</router-link>
+        <router-link :to="{ name: 'Pinia' }">pinia</router-link>
+        <router-link :to="{ name: 'NestedRoutesParent' }">nested routes</router-link>
+        <router-link :to="{ name: 'News' }">news</router-link>
       </div>
     </header>
-    
-    <router-view />
+
+    <router-view v-slot="{ Component }">
+      <transition name="fade">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 
 </template>
