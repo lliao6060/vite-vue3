@@ -11,7 +11,7 @@
       let matched = route.matched
       if (!isHome(matched[0])) {
         matched = [
-          { path: '/index', meta: { title: '首頁' } }
+          { path: '/', meta: { title: '首頁' } }
         ].concat(matched)
       }
       breadcrumbList.value = matched

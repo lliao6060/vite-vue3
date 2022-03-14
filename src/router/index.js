@@ -98,8 +98,14 @@ const router = createRouter({
 
 //設定每一頁的title
 router.beforeEach((to, from, next) => {
-  window.document.title = to.meta.title;
-  next()
+  if(to.name === 'newsDetail') {
+    const newsDetailTitle = `news-${to.query.postId}`
+    window.document.title = newsDetailTitle
+    next()
+  } else {
+    window.document.title = to.meta.title;
+    next()
+  }
 })
 
 export default router

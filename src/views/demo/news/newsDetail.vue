@@ -7,6 +7,12 @@ import { useRouter } from 'vue-router';
 const newsStore = useNewsStore()
 const router = useRouter()
 
+computed(() => {
+  return {
+    ...mapState(newsStore, ['nowNews']),
+  }
+})
+
 const returnToNewsList = () => {
   if(!Object.keys(newsStore.nowNews).length) {
     router.push({
@@ -18,13 +24,6 @@ const returnToNewsList = () => {
 }
 
 returnToNewsList()
-
-
-computed(() => {
-  return {
-    ...mapState(newsStore, ['nowNews']),
-  }
-})
 </script>
 
 <template>
