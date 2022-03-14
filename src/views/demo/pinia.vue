@@ -1,7 +1,7 @@
 <script setup>
   import { useDemoStore } from '@/store/main.js'
   import { storeToRefs, mapState } from 'pinia'
-  import { computed } from 'vue-demi';
+  import { computed } from 'vue';
   
   const demoStore = useDemoStore()
   //可以這樣拿(解構)

@@ -4,7 +4,9 @@ import router from '@/router'
 import pinia from './store';
 import "@/assets/styles/global.scss";
 
-createApp(App)
-.use(pinia)
-.use(router)
-.mount('#app')
+const app = createApp(App);
+
+app.use(pinia);
+app.use(router);
+
+app.mount('#app')

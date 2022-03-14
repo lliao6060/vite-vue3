@@ -1,5 +1,31 @@
 <script setup>
 import Breadcrumbs from '@components/Breadcrumbs.vue';
+import { watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+
+const router = useRouter()
+const route = useRoute()
+
+const initPage = () => {
+  router.push({
+    name: 'Index'
+  })
+}
+
+const showParams = () => {
+  console.log(route.path)
+}
+
+
+watch(route, () => {
+  showParams()
+})
+
+
+initPage()
+
+
+
 </script>
 
 <template>
