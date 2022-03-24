@@ -1,5 +1,5 @@
 <script setup>
-import { useNewsStore } from '@/store/news.js'
+import { useNewsStore } from '@/store/module/News.js'
 import { mapState } from 'pinia';
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';

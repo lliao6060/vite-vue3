@@ -1,9 +1,10 @@
 <script setup>
 import { ref, onMounted } from "vue"
 import { useRoute, useRouter } from 'vue-router';
-import { useNewsStore } from '@/store/news.js'
+import { useNewsStore } from '@/store/module/News.js'
 
 const newsStore = useNewsStore()
+const { updateNews } = newsStore
 
 //router
 const router = useRouter()
@@ -44,7 +45,7 @@ const getNewsDetail = async (id) => {
     content: content.data
   }
 
-  newsStore.updateNews(newsDetail.value)
+  updateNews(newsDetail.value)
 
   router.push({
     name: 'newsDetail',
