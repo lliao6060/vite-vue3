@@ -1,6 +1,7 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 const { resolve } = require('path')
+import autoComponents from 'unplugin-vue-components/vite'
 import legacy from '@vitejs/plugin-legacy'
 
 // https://vitejs.dev/config/
@@ -83,6 +84,11 @@ export default ({ mode }) => {
     plugins: [
       vue(),
       //提供傳統瀏覽器兼容
+      autoComponents({
+        dirs: ['src/components'],
+        resolvers: [],
+        dts: true
+      }),
       legacy({
         targets: ['> 1%, last 1 version, ie >= 11'],
         additionalLegacyPolyfills: ['regenerator-runtime/runtime']

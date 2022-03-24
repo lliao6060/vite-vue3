@@ -1,5 +1,4 @@
 <script setup>
-import Breadcrumbs from '@components/Breadcrumbs.vue';
 import { watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
