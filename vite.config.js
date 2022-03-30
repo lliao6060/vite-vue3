@@ -5,6 +5,7 @@ import autoComponents from 'unplugin-vue-components/vite'
 import legacy from '@vitejs/plugin-legacy'
 
 // https://vitejs.dev/config/
+// js、css、img打包單獨拆成不同的文件 https://its401.com/article/m0_48497187/115611649 
 
 export default ({ mode }) => {
   return defineConfig({
@@ -42,8 +43,7 @@ export default ({ mode }) => {
     },
     //打包模式 & MPA多頁應用
     build: {
-      assetsDir: "./static",
-      chunkSizeWarningLimit: 1500, //分塊打包 大塊分解成更小的塊
+      assetsDir: 'img/',
       // 確保外部化處理那些你不想打包進庫的依賴
       external: ['vue'],
       rollupOptions: {
@@ -52,23 +52,20 @@ export default ({ mode }) => {
           // arcticle: resolve(__dirname, 'arcticle/index.html')
         },
         output: {
+          chunkFileNames: 'js/[name]-[hash].js',
+          entryFileNames: 'js/[name]-[hash].js',
+          assetFileNames: '[ext]/[name]-[hash].[ext]',
+          // 在 UMD 構建模式下為這些外部化的依賴提供一個全域性變數
+          globals: {
+            vue: 'Vue',
+          },
           manualChunks(id) {
             if(id.includes('node_modules')) {
               return id.toString().split('node_modules/')[1].split('/')[0].toString();
             }
           }
         },
-        // 在 UMD 構建模式下為這些外部化的依賴提供一個全域性變數
-        globals: {
-          vue: 'Vue',
-        }
-        //預設會有hash 如果想要保留原檔名想要取消檔名的hash時 如下
-        // output: {
-        //   entryFileNames: `assets/[name].js`,
-        //   chunkFileNames: `assets/[name].js`,
-        //   assetFileNames: `assets/[name].[ext]`
-        // }
-      }
+      },
     },
     //全局都可以引用
     css: {
@@ -90,8 +87,7 @@ export default ({ mode }) => {
         dts: true
       }),
       legacy({
-        targets: ['> 1%, last 1 version, ie >= 11'],
-        additionalLegacyPolyfills: ['regenerator-runtime/runtime']
+        targets: ['defaults', 'not IE 11']
       })
     ],
   })

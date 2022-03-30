@@ -10,6 +10,8 @@ const count = ref(0)
 
 <template>
   <h1>{{ msg }}</h1>
+  <img src="@/assets/logo.png">
+  <img src="@images/maju.jpg">
 </template>
 
 <style lang="scss" scoped>
