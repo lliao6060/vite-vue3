@@ -9,14 +9,18 @@ import viteImagemin from "vite-plugin-imagemin";
 // js、css、img打包單獨拆成不同的文件 https://its401.com/article/m0_48497187/115611649 
 // 去掉console https://juejin.cn/post/7044876656049127437
 
+function pathResolve(dir) {
+  return resolve(__dirname, dir);
+}
+
 export default defineConfig(({ mode, command }) => ({
   base: './',
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src'),
-      '@components': resolve(__dirname, 'src/components'),
-      '@views': resolve(__dirname, 'src/views'),
-      '@images': resolve(__dirname, 'src/assets/images')
+      '@': pathResolve('src'),
+      '@components': pathResolve('src/components'),
+      '@views': pathResolve('src/views'),
+      '@images': pathResolve('src/assets/images'),
     },
   },
   //跨域設定
@@ -26,23 +30,15 @@ export default defineConfig(({ mode, command }) => ({
     open: false,
     https: false,
     proxy: {
-      // 字串寫法
-      '/foo': 'http://localhost:4567',
-      // 選項寫法
       '/api': {
-        target: 'http://jsonplaceholder.typicode.com',
+        target: 'http://jsonplaceholder.typicode.com', //代理接口
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
-      },
-      // 正則寫法
-      '^/fallback/.*': {
-        target: 'http://jsonplaceholder.typicode.com',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/fallback/, '')
       },
     }
   },
   build: { 
+    //構建後體積更小
     minify: "terser", 
     //靜態資源導出路徑
     assetsDir: 'img/',
@@ -87,6 +83,10 @@ export default defineConfig(({ mode, command }) => ({
       `
       }
     }
+  },
+  // 引入第三方的配置
+  optimizeDeps: {
+    include: ["axios"]
   },
   plugins: [
     vue(),
