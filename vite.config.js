@@ -14,7 +14,7 @@ function pathResolve(dir) {
 }
 
 export default defineConfig(({ mode, command }) => ({
-  base: './',
+  base: loadEnv(mode, process.cwd()).VITE_PUBLIC,
   resolve: {
     alias: {
       '@': pathResolve('src'),

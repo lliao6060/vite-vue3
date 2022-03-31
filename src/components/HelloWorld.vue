@@ -28,6 +28,7 @@ getData()
       {{ data }}
     </div>
   </div>
+  <img src="@images/maju.jpg">
 </template>
 
 <style lang="scss" scoped>
