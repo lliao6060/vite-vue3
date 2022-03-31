@@ -7,10 +7,13 @@ defineProps({
 })
 
 let data = ref([])
+let title = ref('')
 
 const getData = async () => {
+  title.value = 'loading...'
   const res = await axios.get('https://jsonplaceholder.typicode.com/users')
   data.value = res.data
+  title.value = 'axios test';
 }
 getData()
 
@@ -20,7 +23,7 @@ getData()
   <h1>{{ msg }}</h1>
   <br>
   <div>
-    <h3>axios get api test</h3>
+    <h3>{{ title }}</h3>
     <div>
       {{ data }}
     </div>
