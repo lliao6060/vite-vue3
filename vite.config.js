@@ -5,10 +5,6 @@ import autoComponents from 'unplugin-vue-components/vite'
 import legacy from '@vitejs/plugin-legacy'
 import viteImagemin from "vite-plugin-imagemin";
 
-// https://vitejs.dev/config/
-// js、css、img打包單獨拆成不同的文件 https://its401.com/article/m0_48497187/115611649 
-// 去掉console https://juejin.cn/post/7044876656049127437
-
 function pathResolve(dir) {
   return resolve(__dirname, dir);
 }
@@ -68,8 +64,8 @@ export default defineConfig(({ mode, command }) => ({
     //prod模式去除console
     terserOptions: { 
       compress: { 
-        drop_console: command === "build" && loadEnv(mode, __dirname).VITE_PROJECT_ENV === "prod", 
-        drop_debugger: command === "build" && loadEnv(mode, __dirname).VITE_PROJECT_ENV === "prod" 
+        drop_console: command !== 'serve',
+        drop_debugger: command !== 'serve'
       } 
     } 
   },
