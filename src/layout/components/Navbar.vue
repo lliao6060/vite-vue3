@@ -9,6 +9,7 @@
       <router-link :to="{ name: 'Pinia' }">pinia</router-link>
       <router-link :to="{ name: 'NestedRoutesParent' }">nested routes</router-link>
       <router-link :to="{ name: 'News' }">news</router-link>
+      <router-link :to="{ name: 'Components' }">Components</router-link>
     </div>
   </nav>
 </template>

@@ -1,29 +1,29 @@
 <script setup>
-  import { useDemoStore } from '@/store/main.js'
+  import { useGlobalStore } from '@/store/main.js'
   import { storeToRefs, mapState } from 'pinia'
   import { computed } from 'vue';
   
-  const demoStore = useDemoStore()
+  const GlobalStore = useGlobalStore()
   //可以這樣拿(解構)
-  // const { count, quantity, countTotal } = storeToRefs(demoStore)
+  // const { count, quantity, countTotal } = storeToRefs(GlobalStore)
 
 
   //也可以像是vuex一樣的拿法
   computed(() => {
     return {
-      ...mapState(useDemoStore, ['count', 'quantity', 'countTotal']),
+      ...mapState(useGlobalStore, ['count', 'quantity', 'countTotal']),
     }
   })
 
   //修改state中的數據
-  const demoStoreChange = () => {
-    demoStore.$patch(state => {
+  const GlobalStoreChange = () => {
+    GlobalStore.$patch(state => {
       state.count++
       state.quantity++
     })
 
     //邏輯較多時 可以寫在actions裡 直接調用
-    // demoStore.countChange()
+    // GlobalStore.countChange()
   }
 
   // console.log(import.meta.env)
@@ -31,11 +31,11 @@
 
 
 <template>
-  <p>count: {{ demoStore.count }}</p>
-  <p>quantity: {{ demoStore.quantity }}</p>
-  <p>count total: {{ demoStore.countTotal }}</p>
+  <p>count: {{ GlobalStore.count }}</p>
+  <p>quantity: {{ GlobalStore.quantity }}</p>
+  <p>count total: {{ GlobalStore.countTotal }}</p>
 
-  <button @click="demoStoreChange">修改state數據</button>
+  <button @click="GlobalStoreChange">修改state數據</button>
 </template>
 
 <style>

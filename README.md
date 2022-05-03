@@ -17,3 +17,7 @@ $ yarn dev
 ## Use
  - vue-router
  - pinia
+
+## plugin
+  - [vue-countdown](https://github.com/fengyuanchen/vue-countdown/blob/main/src/README.md)
+  - [vue3-lazyload](https://www.npmjs.com/package/vue3-lazyload)

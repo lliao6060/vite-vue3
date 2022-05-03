@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Breadcrumbs: typeof import('./src/components/Breadcrumbs.vue')['default']
+    CountDown: typeof import('./src/components/CountDown.vue')['default']
     Footer: typeof import('./src/layout/components/Footer.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Layout: typeof import('./src/layout/Layout.vue')['default']
