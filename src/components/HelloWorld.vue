@@ -28,7 +28,6 @@ getData()
       {{ data }}
     </div>
   </div>
-  <t-accordion-example />
 </template>
 
 <style lang="scss" scoped>
