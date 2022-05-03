@@ -1,11 +1,25 @@
 @import './transition.scss';
+@import './extend.scss';
 
 * {
   box-sizing: border-box;
 }
 
+body, html {
+  height: 100%;
+  font-family: '微軟正黑體', Arial, sans-serif;
+  color: $dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@include customScrollBar($dark);
+
+//router
 .active-link {
-  font-weight: bold;
+  text-decoration: none;
 }
 
 #fix-landscape-window {
