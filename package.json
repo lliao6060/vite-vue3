@@ -23,6 +23,7 @@
     "vite": "^2.8.0",
     "vite-plugin-imagemin": "^0.6.1",
     "maju-ui": "^1.0.7",
-    "@chenfengyuan/vue-countdown": "2"
+    "@chenfengyuan/vue-countdown": "2",
+    "vue3-lazyload": "^0.2.5-beta"
   }
 }
