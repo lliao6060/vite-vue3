@@ -28,7 +28,7 @@ getData()
       {{ data }}
     </div>
   </div>
-  <img src="@images/maju.jpg">
+  <t-accordion-example />
 </template>
 
 <style lang="scss" scoped>

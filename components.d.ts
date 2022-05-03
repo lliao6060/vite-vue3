@@ -6,6 +6,11 @@ declare module 'vue' {
   export interface GlobalComponents {
     Breadcrumbs: typeof import('./src/components/Breadcrumbs.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    TAccordion: typeof import('./src/components/t-accordion/TAccordion.vue')['default']
+    TAccordionContent: typeof import('./src/components/t-accordion/TAccordionContent.vue')['default']
+    TAccordionExample: typeof import('./src/components/t-accordion/TAccordionExample.vue')['default']
+    TAccordionHeader: typeof import('./src/components/t-accordion/TAccordionHeader.vue')['default']
+    TAccordions: typeof import('./src/components/t-accordion/TAccordions.vue')['default']
   }
 }
 
