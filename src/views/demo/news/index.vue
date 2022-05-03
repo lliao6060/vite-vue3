@@ -70,7 +70,7 @@ onMounted(() => {
           @click="getNewsDetail(news.time)"
         >
           <div>
-            {{ $utils.ChangeDateFromYYYYMMMMDD(news.time) }} {{ news.title }}
+            {{ $common.ChangeDateFromYYYYMMMMDD(news.time) }} {{ news.title }}
           </div>
         </li>
       </ul>

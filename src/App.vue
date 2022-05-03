@@ -45,6 +45,19 @@ watch(route, () => {
         <component :is="Component" />
       </transition>
     </router-view>
+
+    <div 
+      id="fix-landscape-window" 
+      class="fullcover"
+      v-if="showFixWindow"
+    >
+      <div class="fix-landscape-content-wrapper align-center">
+        <p class="fix-landscape-content align-center fix-landscape-title">
+          為維持最佳體驗<br>
+          請將您的畫面轉為直向
+        </p>
+      </div>
+    </div>
   </div>
 
 </template>

@@ -21,6 +21,7 @@
     "@vitejs/plugin-vue": "^2.2.0",
     "unplugin-vue-components": "^0.17.18",
     "vite": "^2.8.0",
-    "vite-plugin-imagemin": "^0.6.1"
+    "vite-plugin-imagemin": "^0.6.1",
+    "maju-ui": "^1.0.7"
   }
 }
