@@ -97,6 +97,7 @@ export default defineConfig(({ mode, command }) => ({
     legacy({
       targets: ['defaults', 'not IE 11']
     }),
+    //CI/CD自動部屬會噴錯 記得要拿掉
     viteImagemin()    
   ],
 }))
