@@ -20,6 +20,9 @@ html {
 //router
 .active-link {
   text-decoration: none;
+  &.router-link-exact-active {
+    color: red;
+  }
 }
 
 #fix-landscape-window {

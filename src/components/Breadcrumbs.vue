@@ -33,7 +33,6 @@
       <li 
         v-for="(item, i) in breadcrumbList" 
         :key="i" 
-        class="pl-2"
       >
         <router-link :to="item.path">{{ item.meta.title }}</router-link>
       </li>
@@ -44,6 +43,7 @@
 <style lang="scss" scoped>
   .breadcrumb {
     width: 100%;
+    margin-bottom: 10px;
     @include flex($justify-content: flex-start);
     &__items {
       @include flex;

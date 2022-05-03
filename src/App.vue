@@ -1,6 +1,7 @@
 <script setup>
 import { watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import layoutVue from '@/layout/layout.vue';
 
 const router = useRouter()
 const route = useRoute()
@@ -28,24 +29,10 @@ watch(route, () => {
 </script>
 
 <template>
-  <div id="app">
-    <Breadcrumbs />
-    <header>
-      <div class="routes">
-        <router-link :to="{ name: 'Index' }">index</router-link>
-        <router-link :to="{ name: 'TodoList' }">todoList</router-link>
-        <router-link :to="{ name: 'Pinia' }">pinia</router-link>
-        <router-link :to="{ name: 'NestedRoutesParent' }">nested routes</router-link>
-        <router-link :to="{ name: 'News' }">news</router-link>
-      </div>
-    </header>
-
-    <router-view v-slot="{ Component }">
-      <transition name="fade">
-        <component :is="Component" />
-      </transition>
-    </router-view>
-
+  <div id="app" v-cloak>
+    <navbar />
+    <layout-vue />
+    <Footer />
     <div 
       id="fix-landscape-window" 
       class="fullcover"
@@ -65,21 +52,18 @@ watch(route, () => {
 <style lang="scss">
 @import 'scss-reset/_reset.scss';
 #app {
-  width: 100%;
-  padding: 0 10px;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  header {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  nav,
+  footer {
     @include flex;
-    .routes {
-      >a {
-        margin-right: 20px;
-        text-decoration: none;
-        color: #222;
-      }
-    }
+    height: $navHeight;
+    background: lightblue;
+  }
+
+  footer {
+    flex-shrink: 0;
   }
 }
 </style>

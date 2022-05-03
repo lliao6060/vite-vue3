@@ -15,7 +15,6 @@ export default defineConfig(({ mode, command }) => ({
     alias: {
       '@': pathResolve('src'),
       '@components': pathResolve('src/components'),
-      '@views': pathResolve('src/views'),
       '@images': pathResolve('src/assets/images'),
     },
   },
@@ -87,7 +86,10 @@ export default defineConfig(({ mode, command }) => ({
   plugins: [
     vue(),
     autoComponents({
-      dirs: ['src/components',],
+      dirs: [
+        'src/components',
+        'src/layout'
+      ],
       resolvers: [],
       dts: true
     }),
