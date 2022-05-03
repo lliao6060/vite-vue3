@@ -21,3 +21,4 @@ $ yarn dev
 ## plugin
   - [vue-countdown](https://github.com/fengyuanchen/vue-countdown/blob/main/src/README.md)
   - [vue3-lazyload](https://www.npmjs.com/package/vue3-lazyload)
+  - [swiper](https://swiperjs.com/get-started)

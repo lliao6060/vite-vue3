@@ -24,6 +24,7 @@
     "vite-plugin-imagemin": "^0.6.1",
     "maju-ui": "^1.0.7",
     "@chenfengyuan/vue-countdown": "2",
+    "swiper": "^8.0.7",
     "vue3-lazyload": "^0.2.5-beta"
   }
 }
