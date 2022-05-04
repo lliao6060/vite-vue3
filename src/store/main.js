@@ -4,6 +4,7 @@ import { defineStore } from 'pinia'
 export const useGlobalStore = defineStore('Main', {
   state: () => {
     return {
+      isProd: import.meta.env.PROD,
       count: 100,
       quantity: 10,
 
