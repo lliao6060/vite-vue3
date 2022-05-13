@@ -1,4 +1,4 @@
-<script setup>
+<script setup name="Pinia">
   import { useGlobalStore } from '@/store/main.js'
   import { storeToRefs, mapState } from 'pinia'
   import { computed } from 'vue';

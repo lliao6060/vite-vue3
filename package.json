@@ -17,14 +17,15 @@
     "vue-router": "^4.0.13"
   },
   "devDependencies": {
+    "@chenfengyuan/vue-countdown": "2",
     "@vitejs/plugin-legacy": "^1.7.1",
     "@vitejs/plugin-vue": "^2.2.0",
+    "maju-ui": "^1.0.7",
+    "swiper": "^8.0.7",
     "unplugin-vue-components": "^0.17.18",
     "vite": "^2.8.0",
     "vite-plugin-imagemin": "^0.6.1",
-    "maju-ui": "^1.0.7",
-    "@chenfengyuan/vue-countdown": "2",
-    "swiper": "^8.0.7",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
     "vue3-lazyload": "^0.2.5-beta"
   }
 }

@@ -1,4 +1,4 @@
-<script setup>
+<script setup name="Compo">
   import { useGlobalStore } from '@/store/main.js'
   import { storeToRefs } from 'pinia'
   import { getImageUrl } from  '@/utils'

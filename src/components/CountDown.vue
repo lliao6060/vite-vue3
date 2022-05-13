@@ -1,4 +1,4 @@
-<script setup>
+<script setup name="CountDown">
   import { ref, watch } from 'vue'
   import { useGlobalStore } from '@/store/main.js'
   import { storeToRefs } from 'pinia'

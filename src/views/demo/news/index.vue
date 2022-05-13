@@ -1,4 +1,4 @@
-<script setup>
+<script setup name="AllNews">
 import { ref, onMounted } from "vue"
 import { useRoute, useRouter } from 'vue-router';
 import { useNewsStore } from '@/store/module/News.js'

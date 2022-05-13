@@ -1,4 +1,4 @@
-<script setup>
+<script setup name="Breadcrumbs">
   import { ref, onMounted, watch } from 'vue';
   import { useRoute } from 'vue-router'
 

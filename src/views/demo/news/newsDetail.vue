@@ -1,4 +1,4 @@
-<script setup>
+<script setup name="newsDetail">
 import { useNewsStore } from '@/store/module/News.js'
 import { mapState } from 'pinia';
 import { computed } from 'vue';

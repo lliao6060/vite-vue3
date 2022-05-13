@@ -1,4 +1,4 @@
-<script setup>
+<script setup name="HelloWorld">
 import { ref } from 'vue'
 import axios from 'axios'
 

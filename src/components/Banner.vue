@@ -1,4 +1,4 @@
-<script setup>
+<script setup name="Banner">
   import { getImageUrl, mobileDevice } from '@/utils'
   // import Swiper core and required modules
   import {
