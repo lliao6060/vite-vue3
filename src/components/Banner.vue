@@ -13,7 +13,7 @@
   import { Swiper, SwiperSlide } from 'swiper/vue';
   import "../../node_modules/swiper/swiper-bundle.css"
 
-  const mainImg = mobileDevice ? getImageUrl('maju.jpg') : getImageUrl('maju.jpg')
+  const mainImg = mobileDevice ? getImageUrl('maju/maju.jpg') : getImageUrl('maju/maju.jpg')
   const useModules = [Navigation, Pagination, Autoplay, Lazy ];
 
   const onSwiper = (swiper) => {

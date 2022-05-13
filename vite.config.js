@@ -1,6 +1,11 @@
-import { defineConfig, loadEnv } from 'vite'
+import {
+  defineConfig,
+  loadEnv
+} from 'vite'
 import vue from '@vitejs/plugin-vue'
-const { resolve } = require('path')
+const {
+  resolve
+} = require('path')
 import autoComponents from 'unplugin-vue-components/vite'
 import legacy from '@vitejs/plugin-legacy'
 import viteImagemin from "vite-plugin-imagemin";
@@ -9,7 +14,10 @@ function pathResolve(dir) {
   return resolve(__dirname, dir);
 }
 
-export default defineConfig(({ mode, command }) => ({
+export default defineConfig(({
+  mode,
+  command
+}) => ({
   base: loadEnv(mode, process.cwd()).VITE_PUBLIC,
   resolve: {
     alias: {
@@ -32,23 +40,40 @@ export default defineConfig(({ mode, command }) => ({
       },
     }
   },
-  build: { 
+  build: {
     //構建後體積更小
-    minify: "terser", 
+    minify: "terser",
     //靜態資源導出路徑
     assetsDir: 'img/',
     // 確保外部化處理那些你不想打包進庫的依賴
     external: ['vue'],
+    // 取消計算文件大小，加快打包速度
+    reportCompressedSize: false,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
       },
       //依不同類型檔案拆分資料夾
       output: {
-        chunkFileNames: 'js/[name]-[hash].js',
-        entryFileNames: 'js/[name]-[hash].js',
-        assetFileNames: '[ext]/[name]-[hash].[ext]',
-        // 在 UMD 構建模式下為這些外部化的依賴提供一個全域性變數
+        //NOTE: 全散在外面
+        // chunkFileNames: 'js/[name]-[hash].js',
+        // entryFileNames: 'js/[name]-[hash].js',
+        // assetFileNames: '[ext]/[name]-[hash].[ext]',
+
+        //NOTE: 把js跟css包一起
+        assetFileNames: (assetInfo) => {
+          var info = assetInfo.name.split(".");
+          var extType = info[info.length - 1];
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+            extType = "img";
+          } else if (/woff|woff2/.test(extType)) {
+            extType = "css";
+          }
+          console.log(assetInfo.name)
+          return `static/${extType}/[name]-[hash][extname]`;
+        },
+        chunkFileNames: "static/js/[name]-[hash].js",
+        entryFileNames: "static/js/[name]-[hash].js",
         globals: {
           vue: 'Vue',
         },
@@ -60,13 +85,13 @@ export default defineConfig(({ mode, command }) => ({
         }
       },
     },
-    //prod模式去除console
-    terserOptions: { 
-      compress: { 
-        drop_console: command !== 'serve',
-        drop_debugger: command !== 'serve'
-      } 
-    } 
+  },
+  //prod模式去除console
+  terserOptions: {
+    compress: {
+      drop_console: command !== 'serve',
+      drop_debugger: command !== 'serve'
+    }
   },
   //全局都可以引用
   css: {
@@ -98,6 +123,6 @@ export default defineConfig(({ mode, command }) => ({
       targets: ['defaults', 'not IE 11']
     }),
     //CI/CD自動部屬會噴錯 記得要拿掉
-    viteImagemin()    
+    viteImagemin()
   ],
 }))

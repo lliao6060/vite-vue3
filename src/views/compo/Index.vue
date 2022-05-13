@@ -19,7 +19,7 @@
     </div>
     <div class="col-lg-6 col-md-12">
       <h3 class="rwd-sub-title">vue3-lazyload</h3>
-      <img v-lazy="getImageUrl('maju.jpg')" />
+      <img v-lazy="getImageUrl('maju/maju.jpg')" />
       <!-- <img v-lazy="{
         src: mobileBannerlazyOptions.src, 
         lifecycle: mobileBannerlazyOptions.lifecycle,
