@@ -1,5 +1,4 @@
 <script setup name="App">
-import { watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import layoutVue from '@/layout/layout.vue';
 

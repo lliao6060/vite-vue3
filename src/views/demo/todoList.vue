@@ -1,10 +1,4 @@
 <script setup name="TodoList">
-  import {
-    computed,
-    onMounted,
-    reactive,
-    ref
-  } from 'vue';
 
   //data
   const userInput = ref('')

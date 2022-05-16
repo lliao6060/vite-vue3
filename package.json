@@ -22,6 +22,7 @@
     "@vitejs/plugin-vue": "^2.2.0",
     "maju-ui": "^1.0.7",
     "swiper": "^8.0.7",
+    "unplugin-auto-import": "^0.7.1",
     "unplugin-vue-components": "^0.17.18",
     "vite": "^2.8.0",
     "vite-plugin-imagemin": "^0.6.1",

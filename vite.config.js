@@ -4,6 +4,7 @@ import autoComponents from 'unplugin-vue-components/vite'
 import legacy from '@vitejs/plugin-legacy'
 import viteImagemin from "vite-plugin-imagemin";
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+import AutoImport from 'unplugin-auto-import/vite'
 
 const { resolve } = require('path')
 
@@ -122,6 +123,15 @@ export default defineConfig(({
     //CI/CD自動部屬會噴錯 記得要拿掉
     viteImagemin(),
     //可以直接在script標籤上定義name
-    VueSetupExtend()
+    VueSetupExtend(),
+    AutoImport({
+      // API 自动导入
+      dts: 'src/auto-imports.d.ts',
+      imports: ['vue'],
+      // 解决eslint報錯問題
+      eslintrc: {
+        enabled: true
+      }
+    })
   ],
 }))
