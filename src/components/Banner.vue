@@ -11,6 +11,8 @@
   // configure Swiper to use modules
   Swiper.use([Navigation, Pagination, Autoplay, Lazy]);
 
+  const emit = defineEmits(['onImageClick'])
+
   // init Swiper:
   function initSwiper() {
     var swiper = new Swiper(".mySwiper", {
@@ -39,12 +41,15 @@
 <template>
   <div class="swiper mySwiper w-100">
     <div class="swiper-wrapper w-100 h-100">
-      <div class="swiper-slide">
-        <div class="swiper-lazy" data-background="https://swiperjs.com/demos/images/nature-1.jpg"></div>
-        <div class="swiper-lazy-preloader"></div>
-      </div>
-      <div class="swiper-slide">
-        <div class="swiper-lazy" data-background="https://swiperjs.com/demos/images/nature-2.jpg"></div>
+      <div
+        class="swiper-slide" v-for="(_, i) in 2"
+        :key="`swiper-image-${i}`"
+      >
+        <div
+          class="swiper-lazy"
+          :data-background="`https://swiperjs.com/demos/images/nature-${i+1}.jpg`"
+          @click="emit('onImageClick', `https://swiperjs.com/demos/images/nature-${i+1}.jpg`)"
+        ></div>
         <div class="swiper-lazy-preloader"></div>
       </div>
       <!-- <div class="swiper-slide">

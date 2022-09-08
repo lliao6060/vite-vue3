@@ -2,8 +2,20 @@
   import { useAppStore } from '@/store/app.js'
   import { storeToRefs } from 'pinia'
   import { getImageUrl } from  '@/utils'
+
   const appStore = useAppStore()
   const { stopCount } = storeToRefs(appStore)
+
+  const identifyModalRef = ref(null)
+  const lightboxModalRef = ref(null)
+
+  function openLightbox(imgUrl) {
+    if(imgUrl) {
+      lightboxModalRef.value?.toggleModal(true, {
+        imgUrl: imgUrl
+      })
+    }
+  }
 </script>
 
 <template>
@@ -28,9 +40,20 @@
     </div>
     <div class="col-lg-6 col-md-12">
       <h3 class="rwd-sub-title">swiper</h3>
-      <Banner />
+      <Banner @on-image-click="openLightbox"/>
     </div>
   </div>
+
+  <BasicModal
+    ref="identifyModalRef"
+    :modal-type="'identify'"
+  />
+
+  <BasicModal
+    ref="lightboxModalRef"
+    :modal-type="'lightbox'"
+  />
+
 </template>
 
 <style lang="scss" scoped>
