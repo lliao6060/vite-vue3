@@ -2,6 +2,7 @@
   import { useAppStore } from '@/store/app.js'
   import { getImageUrl } from  '@/utils'
 
+
   const appStore = useAppStore()
   const { stopCount } = storeToRefs(appStore)
 
@@ -18,7 +19,7 @@
 </script>
 
 <template>
-  <div class="d-grid compo-row">
+  <div class="d-grid compo-row grid-cols-sm-1 grid-cols-md-2">
     <div class="w-100 h-100">
       <h3 class="rwd-sub-title">手風琴</h3>
       <t-accordion-example />
@@ -56,16 +57,13 @@
 <style lang="scss" scoped>
   .compo-row {
     gap: 10px 10px;
-    grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: repeat(2, 1fr);
     >div {
       min-height: 500px;
       margin: 10px auto;
       padding: 10px;
       border: 1px solid;
       overflow: hidden;
-    }
-    @include RWD($sm-md) {
-      grid-template-columns: repeat(1, 1fr);
     }
   }
 

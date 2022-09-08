@@ -2,7 +2,9 @@ import { createApp } from 'vue'
 import App from '@/App.vue'
 import router from '@/router'
 import pinia from './store';
-import 'maju-ui';
+import 'maju-ui/scss/maju.scss'
+// import 'maju-ui';
+// import 'maju-ui/scss/maju-grid.scss';
 import "@/assets/scss/app.scss";
 import common from '@/common.js'
 import { getImageUrl, mobileDevice } from  '@/utils'
