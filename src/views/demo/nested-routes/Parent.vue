@@ -2,16 +2,18 @@
 </script>
 
 <template>
-  <div v-show="$route.meta.showParent">
-    <p>this is parent route parent</p>
-    <a 
-      @click="$router.push({
-        name: 'NestedRoutesChild'
-      })"
-      class="go-child-btn"
-    >Go子路由</a>
+  <div>
+    <div v-show="$route.meta.showParent">
+      <p>this is parent route parent</p>
+      <a 
+        @click="$router.push({
+          name: 'NestedRoutesChild'
+        })"
+        class="go-child-btn"
+      >Go子路由</a>
+    </div>
+    <router-view />
   </div>
-  <router-view />
 </template>
 
 <style lang="scss" scoped>

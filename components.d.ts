@@ -5,17 +5,23 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Banner: typeof import('./src/components/Banner.vue')['default']
+    BasicModal: typeof import('./src/components/modal/basic-modal.vue')['default']
     Breadcrumbs: typeof import('./src/components/Breadcrumbs.vue')['default']
     CountDown: typeof import('./src/components/CountDown.vue')['default']
     Footer: typeof import('./src/layout/components/Footer.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    IdentifyModal: typeof import('./src/components/modal/modals/identify-modal.vue')['default']
     Layout: typeof import('./src/layout/Layout.vue')['default']
+    LightBox: typeof import('./src/components/modal/modals/light-box.vue')['default']
+    LongContentModal: typeof import('./src/components/modal/modals/long-content-modal.vue')['default']
     Navbar: typeof import('./src/layout/components/Navbar.vue')['default']
+    Row: typeof import('./src/components/Row.vue')['default']
     TAccordion: typeof import('./src/components/t-accordion/TAccordion.vue')['default']
     TAccordionContent: typeof import('./src/components/t-accordion/TAccordionContent.vue')['default']
     TAccordionExample: typeof import('./src/components/t-accordion/TAccordionExample.vue')['default']
     TAccordionHeader: typeof import('./src/components/t-accordion/TAccordionHeader.vue')['default']
     TAccordions: typeof import('./src/components/t-accordion/TAccordions.vue')['default']
+    VideoModal: typeof import('./src/components/modal/modals/video-modal.vue')['default']
   }
 }
 

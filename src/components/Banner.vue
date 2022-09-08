@@ -1,206 +1,135 @@
 <script setup name="Banner">
-  import { getImageUrl, mobileDevice } from '@/utils'
-  // import Swiper core and required modules
-  import {
+  // core version + navigation, pagination modules:
+  import Swiper, {
     Navigation,
     Pagination,
     Autoplay,
     Lazy
   } from 'swiper';
+  // import styles bundle
+  import 'swiper/css/bundle';
+  // configure Swiper to use modules
+  Swiper.use([Navigation, Pagination, Autoplay, Lazy]);
 
+  const emit = defineEmits(['onImageClick'])
 
-  // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-  import "../../node_modules/swiper/swiper-bundle.css"
+  // init Swiper:
+  function initSwiper() {
+    var swiper = new Swiper(".mySwiper", {
+      lazy: true,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  }
 
-  const mainImg = mobileDevice ? getImageUrl('maju/maju.jpg') : getImageUrl('maju/maju.jpg')
-  const useModules = [Navigation, Pagination, Autoplay, Lazy ];
-
-  const onSwiper = (swiper) => {
-    console.log(swiper);
-  };
-  const onSlideChange = () => {
-    console.log('slide change');
-  };
+  onMounted(() => {
+    initSwiper()
+  })
 </script>
 
-<template>
-  <swiper 
-    :navigation="true"
-    :pagination="{
-      clickable: true,
-    }"
-    :autoplay="{
-      delay: 3500,
-      disableOnInteraction: false,
-    }"
-    :modules="useModules"
-    :lazy="true"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange"
-  >
-    <swiper-slide>
-      <div
-        :data-background="mainImg"
-        class="swiper-lazy"
-        v-lazy="mainImg"
-      ></div>
-      <div class="swiper-lazy-preloader"></div>
-    </swiper-slide>
-    <swiper-slide>
-      <div
-        :data-background="mainImg"
-        class="swiper-lazy"
-        v-lazy="mainImg"
-      ></div>
-      <div class="swiper-lazy-preloader"></div>
-    </swiper-slide>
-    <swiper-slide>
-      <div
-        :data-background="mainImg"
-        class="swiper-lazy"
-        v-lazy="mainImg"
-      ></div>
-      <div class="swiper-lazy-preloader"></div>
-    </swiper-slide>
-  </swiper>
 
-  <!-- 五月上的第二版本 -->
-  <!-- <swiper 
-    :navigation="true"
-    :pagination="{
-      clickable: true,
-    }"
-    :modules="useModules"
-    :autoplay="{
-      delay: 3500,
-      disableOnInteraction: false,
-    }"
-    @swiper="onSwiper" 
-    @slideChange="onSlideChange"
-    class="parent-swiper"
-  >
-    <swiper-slide>
-      <img src="@images/index/top_banner.jpg">
-      <swiper 
-        :modules="useModules"
-        @slideChange="onSlideChange"
-        class="child-swiper"
+<template>
+  <div class="swiper mySwiper w-100">
+    <div class="swiper-wrapper w-100 h-100">
+      <div
+        class="swiper-slide" v-for="(_, i) in 2"
+        :key="`swiper-image-${i}`"
       >
-        <swiper-slide>
-          <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.youtube.com/embed/cB7WsUhWmNg" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-          ></iframe>        
-        </swiper-slide>
-      </swiper>
-    </swiper-slide>
-  </swiper> -->
+        <div
+          class="swiper-lazy"
+          :data-background="`https://swiperjs.com/demos/images/nature-${i+1}.jpg`"
+          @click="emit('onImageClick', `https://swiperjs.com/demos/images/nature-${i+1}.jpg`)"
+        ></div>
+        <div class="swiper-lazy-preloader"></div>
+      </div>
+      <!-- <div class="swiper-slide">
+        <img v-lazy="'https://swiperjs.com/demos/images/nature-2.jpg'" />
+      </div> -->
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
 </template>
 
-<style lang="scss">
-.swiper {
-  position: relative;
-  height: 100%;
-  .swiper-lazy {
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    @include min-width-RWD(1025) {
-      // background-position: inherit;
-      background-position: center;
-      height: inherit;
-    }
-    @include RWD($lg) {
-      background-position: center;
-      height: inherit;
-    }
-  }
+<style lang="scss" scoped>
+  .mySwiper {
+    height: 95%;
 
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: #fff;
-    font-weight: bold;
-    font-size: 4vw;
-  }
-  
-  .swiper-button-prev {
-    &::before {
-      content: '<';
-    }
-  }
-  .swiper-button-next {
-    &::before {
-      content: '>'
-    }
-  }
-
-  .swiper-pagination {
-    bottom: 15px;
-    padding: 5px;
-    background: rgb(206, 206, 206);
-  }
-
-  .swiper-wrapper {
-    height: inherit;
     .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
       @include flex;
-      > img {
-        display: block;
+
+      .swiper-lazy {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
       }
-      // @include RWD($lg) {
-      //   width: 100%;
-      //   overflow: hidden;
-      //   margin: 0;
-      //   position: relative;
-      //   > img {
-      //     position:absolute;
-      //     top: 50%;
-      //     transform: translateY(-50%);
-      //     max-width: 100%;
-      //   }
-      // }
     }
-  }
 
-  .swiper-pagination-bullet {
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    line-height: 20px;
-    font-size: 12px;
-    color: $dark;
-    opacity: 1;
-    background: rgba(0,0,0,0.2);
-  }
-  .swiper-pagination-bullet-active {
-    color:#fff;
-    background: rgb(255, 255, 255);
-  }
-  .child-swiper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(0, -50%);
-    width: 40%;
-    height: 55%;
-    border: 8px solid;
-    .swiper-wrapper {
-      height: 100%;
-      background: #fff;
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: 55%;
+
+      @include min-width-RWD(1025) {
+        &:hover {
+          opacity: 0.8;
+
+          &::after {
+            display: block;
+          }
+        }
+      }
+
+      &::before {
+        z-index: 2;
+      }
+
+      &::after {
+        display: none;
+        content: '';
+        position: absolute;
+        width: 180%;
+        height: 100vh;
+        background: rgba(0, 0, 0, .75);
+      }
+    }
+
+    .swiper-button-prev {
+      &::before {
+        content: url('https://img.icons8.com/ios/50/EBEBEB/forward--v1.png');
+        @include img-horizontal-flip;
+      }
+
+      &::after {
+        left: -10px;
+      }
+    }
+
+    .swiper-button-next {
+      &::before {
+        content: url('https://img.icons8.com/ios/50/EBEBEB/forward--v1.png')
+      }
+
+      &::after {
+        right: -10px;
+      }
     }
   }
-}
 </style>

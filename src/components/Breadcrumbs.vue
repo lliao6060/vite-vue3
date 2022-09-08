@@ -1,7 +1,4 @@
 <script setup name="Breadcrumbs">
-  import { ref, onMounted, watch } from 'vue';
-  import { useRoute } from 'vue-router'
-
   const route = useRoute()
   const breadcrumbList = ref([])
   const isHome = () => {
@@ -30,9 +27,9 @@
 <template>
   <div class="breadcrumb">
     <ol class="breadcrumb__items">
-      <li 
-        v-for="(item, i) in breadcrumbList" 
-        :key="i" 
+      <li
+        v-for="(item, i) in breadcrumbList"
+        :key="i"
       >
         <router-link :to="item.path">{{ item.meta.title }}</router-link>
       </li>

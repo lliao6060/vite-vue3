@@ -12,18 +12,10 @@
   transform: scaleX(-1);
 }
 
-@mixin top-distance($dis: -1.1) {
-  position: relative;
-  top: $dis * 1%;
-}
-
-@mixin boxContent($color: --linen, $lineHeight: 1.8) {
-  color: var($color);
-  line-height: $lineHeight;
-}
-
 @mixin background-img($path, $name) {
-  background: url('#{$path}/assets/images/#{$name}');
+  background: url('#{$path}/assets/images/#{$name}') no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 @mixin customScrollBar($color) {
@@ -46,7 +38,6 @@
   }
 }
 
-
 $xxl: 1600;
 $xl: 1380;
 $lg: 1024;
@@ -54,7 +45,7 @@ $md-lg: 992;
 $md: 768;
 $sm-md: 576;
 $sm: 480;
-$mini: 375;
+$mini: 393;
 $smallest: 320;
 $breakpoints: ($xxl, $xl, $lg, $md-lg, $md, $sm-md, $sm, $mini, $smallest);
 $minW: ($xxl, $xl, $lg, $md-lg, $md, $sm-md, $sm, $mini, $smallest);
@@ -99,10 +90,14 @@ $height: ($xxl, $xl, $lg, $md-lg, $md, $sm-md, $sm, $mini, $smallest);
   }
 }
 
-@mixin safe-modal($base: 75vmin) {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+@mixin safe-modal($base: 90vmin, $w: 667, $h: 375) {
   width: $base;
+  height: calc($base * $w / $h);
+  max-width: 92vw;
+  max-height: 90vh;
+
+  @media (orientation: landscape) {
+    height: $base;
+    width: calc($base * $w / $h);
+  }
 }

@@ -2,8 +2,10 @@ import { createApp } from 'vue'
 import App from '@/App.vue'
 import router from '@/router'
 import pinia from './store';
-import 'maju-ui';
-import "@/assets/styles/global.scss";
+import 'maju-ui/scss/maju.scss'
+// import 'maju-ui';
+// import 'maju-ui/scss/maju-grid.scss';
+import "@/assets/scss/app.scss";
 import common from '@/common.js'
 import { getImageUrl, mobileDevice } from  '@/utils'
 import fixLandscape from './mixin/fix-landscape.js'
@@ -18,13 +20,13 @@ app.use(VueLazyLoad, {
   loading: mobileDevice ? getImageUrl('loading_p.jpg') : getImageUrl('loading_1920X765.jpg'),
   lifecycle:{
     loading: (el) => {
-      console.log('loading', el)
+      // console.log('loading', el)
     },
     error: (el) => {
-      console.log('error', el)
+      // console.log('error', el)
     },
     loaded: (el) => {
-      console.log('loaded', el)
+      // console.log('loaded', el)
     }
   }
 })
