@@ -28,15 +28,15 @@
     "@chenfengyuan/vue-countdown": "2",
     "@vitejs/plugin-legacy": "^1.7.1",
     "@vitejs/plugin-vue": "^2.2.0",
-    "maju-ui": "^1.0.7",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
+    "maju-ui": "^1.1.0",
     "swiper": "latest",
     "unplugin-auto-import": "^0.7.1",
     "unplugin-vue-components": "^0.17.18",
     "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-vue-setup-extend": "^0.4.0",
-    "vue3-lazyload": "^0.2.5-beta",
-    "commitizen": "^4.2.5",
-    "cz-conventional-changelog": "^3.3.0",
-    "cz-customizable": "^7.0.0"
+    "vue3-lazyload": "^0.2.5-beta"
   }
 }

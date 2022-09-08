@@ -2816,12 +2816,13 @@ magic-string@^0.26.1:
   dependencies:
     sourcemap-codec "^1.4.8"
 
-maju-ui@^1.0.7:
-  version "1.0.8"
-  resolved "https://registry.npmjs.org/maju-ui/-/maju-ui-1.0.8.tgz"
-  integrity sha512-ScDCZQS/Nbylw03lcAbr1AD3vBvCZCEHAhqMDs2DUfiblL7sDNbnmQMWZqaduU4vFG3lW0IsdEla7KtdodnGVQ==
+maju-ui@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/maju-ui/-/maju-ui-1.1.0.tgz#12f526069db7c1ab9c52faf3b4f105763e83a442"
+  integrity sha512-Oo5l68v9FJCyDKPUlWToi6mFMJtX20usqUrL3XjhFOUrrXROKWMJh7tyTNh6idpcBa1pw4p2OYnk0QBabhjOug==
   dependencies:
     gh-pages "^3.1.0"
+    pnpm "^7.3.0"
 
 make-dir@^1.0.0, make-dir@^1.2.0:
   version "1.3.0"
@@ -3333,6 +3334,11 @@ pngquant-bin@^6.0.0:
     bin-build "^3.0.0"
     bin-wrapper "^4.0.1"
     execa "^4.0.0"
+
+pnpm@^7.3.0:
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/pnpm/-/pnpm-7.11.0.tgz#ae48bcb805080989f94fe5dca372013c9ae517e7"
+  integrity sha512-cxh4TfCE8L4ZbLBN72kTGKTYP7X08nrIzoQ2rQCKihAcIHAdNIgsk4bEJyE1xHjE+bNJt9skwr7aJv3LpvUawQ==
 
 postcss@^8.1.10:
   version "8.4.7"

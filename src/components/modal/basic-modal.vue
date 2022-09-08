@@ -78,6 +78,10 @@
     background: #fff;
     text-align: center;
     border-radius: 15px;
+    top: 60%;
+    .ratio  {
+      height: 100%;
+    }
     &--close-btn {
       position: absolute;
       top: -20px;
@@ -101,11 +105,38 @@
         height: 40px;
       }
     }
-    @include min-width-RWD(1025) {
-      @include safe-modal($base: 70vmin);
+    @include min-width-RWD($xxl) {
+      @include safe-modal($base: 63vmin);
+      width: 68.605333vmin !important;
+      max-height: 65vh;
+    }
+
+    @include RWD-min-with-max-width(1281, 1440) {
+      width: 85.605333vmin !important;
+    }
+
+    @include RWD-min-with-max-width(1025, 1280) {
+      width: 73.605333vmin !important;
+      height: 65vmin;
     }
     @include RWD($lg) {
-      width: 90%;
+      top: 50%;
+      @include safe-modal($base: 75vmin);
+      max-width: 92vw;
+      max-height: 40vh;
+    }
+
+    @include RWD($md-lg) {
+      max-height: 50vh;
+    }
+
+    @include RWD($sm-md) {
+      @include safe-modal($base: 95vmin);
+      height: 130.08vmin !important;
+    }
+
+    @include RWD($smallest) {
+      height: 150.08vmin !important;
     }
   }
 }
