@@ -1,8 +1,6 @@
 <script setup name="Pinia">
   import { useAppStore } from '@/store/app.js'
-  import { storeToRefs, mapState } from 'pinia'
-  import { computed } from 'vue';
-  
+
   const appStore = useAppStore()
   //可以這樣拿(解構)
   // const { count, quantity, countTotal } = storeToRefs(appStore)

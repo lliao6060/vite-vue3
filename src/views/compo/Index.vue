@@ -1,6 +1,5 @@
 <script setup name="Compo">
   import { useAppStore } from '@/store/app.js'
-  import { storeToRefs } from 'pinia'
   import { getImageUrl } from  '@/utils'
 
   const appStore = useAppStore()

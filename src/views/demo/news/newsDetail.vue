@@ -1,7 +1,5 @@
 <script setup name="newsDetail">
 import { useNewsStore } from '@/store/module/News.js'
-import { mapState } from 'pinia';
-import { useRouter } from 'vue-router';
 
 const newsStore = useNewsStore()
 const router = useRouter()

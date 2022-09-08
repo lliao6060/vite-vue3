@@ -22,12 +22,12 @@
   const onCountdownEnd = () => {
     updateCounting(true)
   }
-  
+
 </script>
 
 <template>
-  <vue-countdown 
-    :time="time" 
+  <vue-countdown
+    :time="time"
     :transform="transformSlotProps"
     v-slot="{ days, hours, minutes, seconds }"
     @end="onCountdownEnd"
