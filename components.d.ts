@@ -11,6 +11,7 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Layout: typeof import('./src/layout/Layout.vue')['default']
     Navbar: typeof import('./src/layout/components/Navbar.vue')['default']
+    Row: typeof import('./src/components/Row.vue')['default']
     TAccordion: typeof import('./src/components/t-accordion/TAccordion.vue')['default']
     TAccordionContent: typeof import('./src/components/t-accordion/TAccordionContent.vue')['default']
     TAccordionExample: typeof import('./src/components/t-accordion/TAccordionExample.vue')['default']

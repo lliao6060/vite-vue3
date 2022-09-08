@@ -20,12 +20,14 @@ getData()
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-  <br>
   <div>
-    <h3>{{ title }}</h3>
+    <h1>{{ msg }}</h1>
+    <br>
     <div>
-      {{ data }}
+      <h3>{{ title }}</h3>
+      <div>
+        {{ data }}
+      </div>
     </div>
   </div>
 </template>

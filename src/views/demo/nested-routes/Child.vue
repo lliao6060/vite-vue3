@@ -2,7 +2,9 @@
 </script>
 
 <template>
-  <p>this is child route</p>
+  <div>
+    <p>this is child route</p>
+  </div>
 </template>
 
 <style>

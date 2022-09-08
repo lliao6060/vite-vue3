@@ -1,15 +1,13 @@
 <script setup name="CountDown">
-  import { ref, watch } from 'vue'
-  import { useGlobalStore } from '@/store/main.js'
-  import { storeToRefs } from 'pinia'
-  const globalStore = useGlobalStore()
-  const { updateCounting } = globalStore
-  const { endDate } = storeToRefs(globalStore)
+  import { useAppStore } from '@/store/app.js'
+  const appStore = useAppStore()
+  const { updateCounting } = appStore
+  const { endDate } = storeToRefs(appStore)
 
   //timer
   const now = new Date();
   const time =  endDate.value - now;
-  
+
   //格式化時間
   const transformSlotProps = (props) => {
     const formattedProps = {};

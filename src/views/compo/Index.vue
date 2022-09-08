@@ -1,9 +1,9 @@
 <script setup name="Compo">
-  import { useGlobalStore } from '@/store/main.js'
+  import { useAppStore } from '@/store/app.js'
   import { storeToRefs } from 'pinia'
   import { getImageUrl } from  '@/utils'
-  const globalStore = useGlobalStore()
-  const { stopCount } = storeToRefs(globalStore)
+  const appStore = useAppStore()
+  const { stopCount } = storeToRefs(appStore)
 </script>
 
 <template>

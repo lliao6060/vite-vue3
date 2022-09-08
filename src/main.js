@@ -3,7 +3,7 @@ import App from '@/App.vue'
 import router from '@/router'
 import pinia from './store';
 import 'maju-ui';
-import "@/assets/styles/global.scss";
+import "@/assets/scss/app.scss";
 import common from '@/common.js'
 import { getImageUrl, mobileDevice } from  '@/utils'
 import fixLandscape from './mixin/fix-landscape.js'

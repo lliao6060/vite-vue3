@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 // 這邊 defineStore 會自動動態註冊模組，回傳值為 hook function
-export const useGlobalStore = defineStore('Main', {
+export const useAppStore = defineStore('Main', {
   state: () => {
     return {
       isProd: import.meta.env.PROD,

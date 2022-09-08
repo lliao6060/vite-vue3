@@ -1,16 +1,16 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
+const { resolve } = require('path')
 import autoComponents from 'unplugin-vue-components/vite'
 import legacy from '@vitejs/plugin-legacy'
-import viteImagemin from "vite-plugin-imagemin";
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 import AutoImport from 'unplugin-auto-import/vite'
-
-const { resolve } = require('path')
+import viteImagemin from "vite-plugin-imagemin";
 
 function pathResolve(dir) {
   return resolve(__dirname, dir);
 }
+
 
 export default defineConfig(({
   mode,
@@ -96,8 +96,8 @@ export default defineConfig(({
     preprocessorOptions: {
       scss: {
         additionalData: `
-        @import "@/assets/styles/_mixin.scss";
-        @import "@/assets/styles/_palette.scss";
+        @import "@/assets/scss/_mixin.scss";
+        @import "@/assets/scss/_palette.scss";
       `
       }
     }
@@ -116,22 +116,25 @@ export default defineConfig(({
       resolvers: [],
       dts: true
     }),
-    //提供傳統瀏覽器兼容
-    legacy({
-      targets: ['defaults', 'not IE 11']
-    }),
     //CI/CD自動部屬會噴錯 記得要拿掉
     viteImagemin(),
-    //可以直接在script標籤上定義name
     VueSetupExtend(),
     AutoImport({
       // API 自动导入
       dts: 'src/auto-imports.d.ts',
-      imports: ['vue'],
+      imports: [
+        'vue',
+        'vue-router',
+        'pinia'
+      ],
       // 解决eslint報錯問題
       eslintrc: {
         enabled: true
       }
-    })
+    }),
+    //提供傳統瀏覽器兼容
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    }),
   ],
 }))

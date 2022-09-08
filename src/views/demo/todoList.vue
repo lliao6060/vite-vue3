@@ -76,79 +76,81 @@
 </script>
 
 <template>
-  <div class="todo-list">
-    <div class="todo-list__filter-bar">
-      <div class="filter-bar--tool-bar">
-        <p 
-          @click="filterBtn('all')" 
-          :class="{ 'active': filterBtnActiveIs === 'all' }"
-        >全部</p>
-        <p 
-          @click="filterBtn('is-done')" 
-          :class="{ 'active': filterBtnActiveIs === 'is-done' }"
-        >已完成</p>
+  <div>
+    <div class="todo-list">
+      <div class="todo-list__filter-bar">
+        <div class="filter-bar--tool-bar">
+          <p
+            @click="filterBtn('all')"
+            :class="{ 'active': filterBtnActiveIs === 'all' }"
+          >全部</p>
+          <p
+            @click="filterBtn('is-done')"
+            :class="{ 'active': filterBtnActiveIs === 'is-done' }"
+          >已完成</p>
+        </div>
+        <p>共{{ filterTodos[0]?.length }}筆</p>
       </div>
-      <p>共{{ filterTodos[0]?.length }}筆</p>
-    </div>
-    <div class="todo-list__wrapper">
-      <div class="todo-list__add-new-todo">
-        <input 
-          v-model="userInput" 
-          placeholder="add some todos..." 
-          @keyup.enter="addTodo(userInput)"
-        >
-        <span 
-          v-if="userInput.length > 0"
-          @click="clearUserInput" 
-          class="clear-input-btn"
-        >&times;</span>
-        <span 
-          v-if="showErrorText" 
-          class="error-txt"
-        >內文不可為空!</span>
-      </div>
-      <div class="todo-list__todos-panel">
-        <template v-if="!filterTodos[0]?.length">加點什麼吧OwO</template>
-        <template v-else>
-          <ul>
-            <li 
-              v-for="(todos, i) in filterTodos[0]" 
-              :key="`todos-${i}`" 
-              @click="editTodo(todos)"
-              :class="{ 'isDone' : !!todos.isDone }"
-            >
-              <input 
-                type="checkbox" 
-                :checked="todos.isDone" 
-              />
-              {{ todos.todo }}
-              <span 
-                @click="deleteTodo(todos, i)" 
-                class="delete-btn"
-              >&times;</span>
-            </li>
-          </ul>
-        </template>
-      </div>
-    </div>
-  </div>
-  <div class="trashcan">
-    <p>垃圾桶</p>
-    <template v-if="!trashcan.length">目前是空滴</template>
-    <template v-else>
-      <ul class="trashcan__items">
-        <li 
-          v-for="(trashItem, i) in trashcan" 
-          :key="`trashItem-${i}`"
-        >
-          {{ trashItem.todo }}
+      <div class="todo-list__wrapper">
+        <div class="todo-list__add-new-todo">
+          <input
+            v-model="userInput"
+            placeholder="add some todos..."
+            @keyup.enter="addTodo(userInput)"
+          >
           <span 
-            @click="restoreTodo(trashItem, i)" 
-            class="restore-btn"
-          >復原</span>
-        </li>
-      </ul>
-    </template>
+            v-if="userInput.length > 0"
+            @click="clearUserInput"
+            class="clear-input-btn"
+          >&times;</span>
+          <span 
+            v-if="showErrorText"
+            class="error-txt"
+          >內文不可為空!</span>
+        </div>
+        <div class="todo-list__todos-panel">
+          <template v-if="!filterTodos[0]?.length">加點什麼吧OwO</template>
+          <template v-else>
+            <ul>
+              <li
+                v-for="(todos, i) in filterTodos[0]"
+                :key="`todos-${i}`"
+                @click="editTodo(todos)"
+                :class="{ 'isDone' : !!todos.isDone }"
+              >
+                <input
+                  type="checkbox"
+                  :checked="todos.isDone"
+                />
+                {{ todos.todo }}
+                <span
+                  @click="deleteTodo(todos, i)"
+                  class="delete-btn"
+                >&times;</span>
+              </li>
+            </ul>
+          </template>
+        </div>
+      </div>
+    </div>
+    <div class="trashcan">
+      <p>垃圾桶</p>
+      <template v-if="!trashcan.length">目前是空滴</template>
+      <template v-else>
+        <ul class="trashcan__items">
+          <li 
+            v-for="(trashItem, i) in trashcan"
+            :key="`trashItem-${i}`"
+          >
+            {{ trashItem.todo }}
+            <span 
+              @click="restoreTodo(trashItem, i)"
+              class="restore-btn"
+            >復原</span>
+          </li>
+        </ul>
+      </template>
+    </div>
   </div>
 </template>
 

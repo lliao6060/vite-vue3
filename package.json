@@ -5,7 +5,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "commit": "git add . && cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
   },
   "dependencies": {
     "axios": "^0.26.1",
@@ -28,6 +34,9 @@
     "unplugin-vue-components": "^0.17.18",
     "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-vue-setup-extend": "^0.4.0",
-    "vue3-lazyload": "^0.2.5-beta"
+    "vue3-lazyload": "^0.2.5-beta",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0"
   }
 }

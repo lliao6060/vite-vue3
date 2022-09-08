@@ -1,5 +1,4 @@
 <script setup name="AllNews">
-import { useRoute, useRouter } from 'vue-router';
 import { useNewsStore } from '@/store/module/News.js'
 
 const newsStore = useNewsStore()
@@ -7,7 +6,6 @@ const { updateNews } = newsStore
 
 //router
 const router = useRouter()
-const route = useRoute()
 
 let newsIdList = ref([])
 let newsSummaryList = ref([])
@@ -60,23 +58,25 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="news"  v-show="$route.meta.showParent">
-    <div class="news__panel">
-      <ul class="news-list">
-        <li 
-          v-for="(news, i) in newsSummaryList"
-          :key="`news.time-${i}`"
-          @click="getNewsDetail(news.time)"
-        >
-          <div>
-            {{ $common.ChangeDateFromYYYYMMMMDD(news.time) }} {{ news.title }}
-          </div>
-        </li>
-      </ul>
+  <div>
+    <div class="news"  v-show="$route.meta.showParent">
+      <div class="news__panel">
+        <ul class="news-list">
+          <li
+            v-for="(news, i) in newsSummaryList"
+            :key="`news.time-${i}`"
+            @click="getNewsDetail(news.time)"
+          >
+            <div>
+              {{ $common.ChangeDateFromYYYYMMMMDD(news.time) }} {{ news.title }}
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <router-view />
+    <router-view />
+  </div>
 </template>
 
 <style lang="scss">
