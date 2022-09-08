@@ -18,13 +18,13 @@ app.use(VueLazyLoad, {
   loading: mobileDevice ? getImageUrl('loading_p.jpg') : getImageUrl('loading_1920X765.jpg'),
   lifecycle:{
     loading: (el) => {
-      console.log('loading', el)
+      // console.log('loading', el)
     },
     error: (el) => {
-      console.log('error', el)
+      // console.log('error', el)
     },
     loaded: (el) => {
-      console.log('loaded', el)
+      // console.log('loaded', el)
     }
   }
 })
