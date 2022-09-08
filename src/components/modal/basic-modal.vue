@@ -21,8 +21,10 @@
     showModal.value = bool;
     if(bool) {
       fixTargetBody('modal', 'open')
-      bindProps.value = {
-        imageUrl: prams.imgUrl
+      if(prams?.imgUrl) {
+        bindProps.value = {
+          imageUrl: prams.imgUrl
+        }
       }
     } else {
       fixTargetBody('modal', 'close')

@@ -6,7 +6,7 @@
   const appStore = useAppStore()
   const { stopCount } = storeToRefs(appStore)
 
-  const identifyModalRef = ref(null)
+  const longContentModalRef = ref(null)
   const lightboxModalRef = ref(null)
 
   function openLightbox(imgUrl) {
@@ -19,34 +19,32 @@
 </script>
 
 <template>
-  <div class="row compo-row">
-    <div class="col-lg-6 col-md-12">
+  <div class="d-grid compo-row">
+    <div class="w-100 h-100">
       <h3 class="rwd-sub-title">手風琴</h3>
       <t-accordion-example />
     </div>
-    <div class="col-lg-6 col-md-12">
+    <div class="w-100 h-100">
       <h3 class="rwd-sub-title">倒數計時</h3>
       <h4>計時結束了嗎 {{ stopCount }}</h4>
       距離跨年還有<count-down />
     </div>
-    <div class="col-lg-6 col-md-12">
+    <div class="w-100 h-100">
       <h3 class="rwd-sub-title">vue3-lazyload</h3>
       <img v-lazy="getImageUrl('maju/maju.jpg')" />
-      <!-- <img v-lazy="{
-        src: mobileBannerlazyOptions.src, 
-        lifecycle: mobileBannerlazyOptions.lifecycle,
-        loading: mobileBannerlazyOptions.loading
-      }">  -->
     </div>
-    <div class="col-lg-6 col-md-12">
+    <div class="w-100 h-100">
       <h3 class="rwd-sub-title">swiper</h3>
       <Banner @on-image-click="openLightbox"/>
+    </div>
+    <div class="w-100 h-100">
+      <button @click="longContentModalRef?.toggleModal(true)">點我開啟長內容彈窗</button>
     </div>
   </div>
 
   <BasicModal
-    ref="identifyModalRef"
-    :modal-type="'identify'"
+    ref="longContentModalRef"
+    :modal-type="'longContent'"
   />
 
   <BasicModal
@@ -58,16 +56,58 @@
 
 <style lang="scss" scoped>
   .compo-row {
+    gap: 10px 10px;
+    grid-template-columns: repeat(2, 1fr);
     >div {
+      min-height: 500px;
       margin: 10px auto;
       padding: 10px;
       border: 1px solid;
       overflow: hidden;
-      @include min-width-RWD(1025) {
-        &:not(:last-child) {
-          border-right: none;
-        }
-      }
+    }
+    @include RWD($sm-md) {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
+
+
+:deep(.modal__inner) {
+  top: 60%;
+  .ratio  {
+    height: 100%;
+  }
+  @include min-width-RWD($xxl) {
+    @include safe-modal($base: 63vmin);
+    width: 68.605333vmin !important;
+    max-height: 65vh;
+  }
+
+  @include RWD-min-with-max-width(1281, 1440) {
+    width: 85.605333vmin !important;
+  }
+
+  @include RWD-min-with-max-width(1025, 1280) {
+    width: 73.605333vmin !important;
+    height: 65vmin;
+  }
+  @include RWD($lg) {
+    top: 50%;
+    @include safe-modal($base: 75vmin);
+    max-width: 92vw;
+    max-height: 40vh;
+  }
+
+  @include RWD($md-lg) {
+    max-height: 50vh;
+  }
+
+  @include RWD($sm-md) {
+    @include safe-modal($base: 95vmin);
+    height: 130.08vmin !important;
+  }
+
+  @include RWD($smallest) {
+    height: 150.08vmin !important;
+  }
+}
 </style>

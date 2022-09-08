@@ -13,6 +13,7 @@ declare module 'vue' {
     IdentifyModal: typeof import('./src/components/modal/modals/identify-modal.vue')['default']
     Layout: typeof import('./src/layout/Layout.vue')['default']
     LightBox: typeof import('./src/components/modal/modals/light-box.vue')['default']
+    LongContentModal: typeof import('./src/components/modal/modals/long-content-modal.vue')['default']
     Navbar: typeof import('./src/layout/components/Navbar.vue')['default']
     Row: typeof import('./src/components/Row.vue')['default']
     TAccordion: typeof import('./src/components/t-accordion/TAccordion.vue')['default']
