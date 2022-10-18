@@ -15,19 +15,19 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "file-saver": "^2.0.5",
+    "maju-ui": "^1.1.0",
     "pinia": "^2.0.11",
+    "remockjs": "^0.1.0",
     "sass": "^1.44.0",
     "sass-loader": "8.0.2",
     "scss-reset": "^1.2.2",
+    "swiper": "latest",
     "terser": "^5.14.2",
     "vite": "^3.0.6",
     "vue": "3.2.41",
     "vue-router": "^4.0.13",
-    "maju-ui": "^1.1.0",
-    "swiper": "latest",
-    "file-saver": "^2.0.5",
-    "xlsx": "0.15.1",
-    "remockjs": "^0.1.0"
+    "xlsx": "0.15.1"
   },
   "devDependencies": {
     "@chenfengyuan/vue-countdown": "2",
@@ -39,8 +39,8 @@
     "unplugin-auto-import": "^0.7.1",
     "unplugin-vue-components": "^0.17.18",
     "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-purge-icons": "^0.8.1",
     "vite-plugin-vue-setup-extend": "^0.4.0",
-    "vue3-lazyload": "^0.2.5-beta",
-    "vite-plugin-purge-icons": "^0.8.1"
+    "vue3-lazyload": "^0.2.5-beta"
   }
 }

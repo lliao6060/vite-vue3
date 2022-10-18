@@ -1,4 +1,4 @@
-import { Response } from '@/common/types'
+import { Response } from '../common/types'
 
 export default function useAPIs() {
   interface ApiError {
@@ -16,13 +16,17 @@ export default function useAPIs() {
     try {
       const res = await api
       if (res) {
+        window.$message({
+          message: 'api get success',
+          type: 'success'
+        })
         return res;
       } else {
         throw new Error(`errorType.${res.res}`)
       }
     } catch (err: unknown) {
       if (isApiError(err)) {
-        throw new Error(`${err.code} ${err.error}`)
+        apiFail(`${err.code} ${err.error}`)
       }
     }
   };
@@ -37,7 +41,7 @@ export default function useAPIs() {
       }
     } catch (err: unknown) {
       if (isApiError(err)) {
-        throw new Error(`${err.code} ${err.error}`)
+        apiFail(`${err.code} ${err.error}`)
       }
     }
   };
@@ -54,15 +58,16 @@ export default function useAPIs() {
       return await testErrorApi();
     } catch (error: unknown) {
       if (isApiError(error)) {
-        throw new Error(`${error.code} ${error.error}`)
+        apiFail(`${error.code} ${error.error}`)
       }
     }
   }
 
   function apiFail(msg: string) {
-    window.$loadingbar.start()
-    window.$loadingbar.error()
-    window.$message.error(msg)
+    window.$message({
+      message: msg,
+      type: 'error'
+    })
   }
 
 

@@ -32,8 +32,8 @@ watch(route, () => {
     <navbar />
     <layout-vue />
     <Footer />
-    <div 
-      id="fix-landscape-window" 
+    <div
+      id="fix-landscape-window"
       class="fullcover"
       v-if="showFixWindow"
     >
@@ -44,6 +44,7 @@ watch(route, () => {
         </p>
       </div>
     </div>
+    <vue-progress-bar></vue-progress-bar>
   </div>
 
 </template>
