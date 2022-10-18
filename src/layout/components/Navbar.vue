@@ -10,6 +10,7 @@
       <router-link :to="{ name: 'NestedRoutesParent' }">nested routes</router-link>
       <router-link :to="{ name: 'News' }">news</router-link>
       <router-link :to="{ name: 'Components' }">Components</router-link>
+      <router-link :to="{ name: 'Remock' }">Mock Data</router-link>
     </div>
   </nav>
 </template>

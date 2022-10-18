@@ -14,7 +14,7 @@ let newsDetail = ref({})
 
 //取得open list
 const getNewsList = async () => {
-  const res = await axios.get('/src/views/demo/news/news_open.txt')
+  const res = await axios.get('/all-news/news_open.txt')
   newsIdList = res.data
 
   for(let i = 0; i < newsIdList.length; i++) {
@@ -24,7 +24,7 @@ const getNewsList = async () => {
 
 //概略預覽
 const getSummary = async (id) => {
-  const title = await axios.get(`/src/views/demo/news/all-news/news-${id}/title.txt`)
+  const title = await axios.get(`/all-news/news-${id}/title.txt`)
   newsSummaryList.value.push({
     time: id,
     title: title.data,
@@ -34,8 +34,8 @@ const getSummary = async (id) => {
 
 //點進去後
 const getNewsDetail = async (id) => {
-  const title = await axios.get(`/src/views/demo/news/all-news/news-${id}/title.txt`)
-  const content = await axios.get(`/src/views/demo/news/all-news/news-${id}/content.txt`)
+  const title = await axios.get(`/all-news/news-${id}/title.txt`)
+  const content = await axios.get(`/all-news/news-${id}/content.txt`)
   newsDetail.value = {
     time: id,
     title: title.data,
