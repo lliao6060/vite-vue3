@@ -16,7 +16,7 @@ export const demoRoute = [
     },
   },
   {
-    path: '/demo/nested-routes/parent',
+    path: '/demo/nested-routes',
     name: 'NestedRoutesParent',
     component: () => import('@/views/demo/nested-routes/Parent.vue'),
     meta: {

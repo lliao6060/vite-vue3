@@ -1,6 +1,7 @@
 <script setup name="Compo">
   import { useAppStore } from '@/store/app.js'
   import { getImageUrl } from  '@/utils'
+  import Export from "@/plugins/export-excel";
 
 
   const appStore = useAppStore()
@@ -16,6 +17,27 @@
       })
     }
   }
+
+  function onExcelExport() {
+    const exportData = [
+      {
+        id: 1,
+        name: '麻糬',
+        age: 10
+      },
+      {
+        id: 2,
+        name: '羊羊',
+        age: 8
+      },
+    ]
+    let fields = {
+      id: 'ID',
+      name: '姓名',
+      age: '年齡',
+    };
+    Export(exportData, fields, "測試導出");
+}
 </script>
 
 <template>
@@ -52,6 +74,24 @@
     >
       <div class="compo-item w-100 h-100">
         <p class="align-center rwd-sub-title">點空白區域開啟長內容彈窗</p>
+      </div>
+    </div>
+    <div class="w-100 h-100">
+      <h3 class="rwd-sub-title">一鍵導出excel</h3>
+      <div class="compo-item w-100 h-100">
+        <a
+          href="#"
+          @click.prevent="onExcelExport"
+        >點我導出</a>
+      </div>
+    </div>
+    <div class="w-100 h-100">
+      <h3 class="rwd-sub-title">Icons</h3>
+      <div class="compo-item w-100 h-100">
+        <Icon name="ic:round-star-rate" size="30" />
+        <Icon name="ri:moon-clear-line" size="30" />
+        <Icon name="noto-v1:cat-with-wry-smile" size="30" />
+        <Icon name="vscode-icons:file-type-vue" size="30" />
       </div>
     </div>
   </div>

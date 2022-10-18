@@ -37,6 +37,9 @@
     "unplugin-vue-components": "^0.17.18",
     "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-vue-setup-extend": "^0.4.0",
-    "vue3-lazyload": "^0.2.5-beta"
+    "vue3-lazyload": "^0.2.5-beta",
+    "file-saver": "^2.0.5",
+    "xlsx": "0.15.1",
+    "vite-plugin-purge-icons": "^0.8.1"
   }
 }

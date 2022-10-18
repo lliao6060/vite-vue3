@@ -5,7 +5,8 @@ import autoComponents from 'unplugin-vue-components/vite'
 import legacy from '@vitejs/plugin-legacy'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 import AutoImport from 'unplugin-auto-import/vite'
-import viteImagemin from "vite-plugin-imagemin";
+import viteImagemin from "vite-plugin-imagemin"
+import purgeIcons from 'vite-plugin-purge-icons'
 
 function pathResolve(dir) {
   return resolve(__dirname, dir);
@@ -136,5 +137,7 @@ export default defineConfig(({
     legacy({
       targets: ['defaults', 'not IE 11']
     }),
+    purgeIcons(),
   ],
+  envDir: pathResolve('./src/env'),
 }))
