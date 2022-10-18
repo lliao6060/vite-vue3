@@ -13,7 +13,7 @@
 </script>
 
 <template>
-<h4 class="fw-bold">title</h4>
+<h4 class="fw-bold card-title">title</h4>
 <div class="lightbox">
   <figure>
     <img

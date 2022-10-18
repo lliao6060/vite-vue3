@@ -5,9 +5,7 @@
 //   --mobile-text-size: 16px;
 // }
 
-.card-title {
-  font-weight: bold;
-  --maju-vrwd: 16;
+%sub-title {
   @include RWD($lg) {
     --maju-vrwd: 13;
   }
@@ -17,4 +15,26 @@
   @include RWD($sm-md) {
     --maju-vrwd: 28;
   }
+}
+
+
+%inner-content {
+  --maju-vrwd: 10;
+  @include RWD($lg) {
+    --maju-vrwd: 11.2;
+  }
+  @include RWD($md-lg) {
+    --maju-vrwd: 14.8;
+  }
+  @include RWD($sm-md) {
+    --maju-vrwd: 23;
+  }
+  @include RWD($mini) {
+    --maju-vrwd: 24.5;
+  }
+}
+
+.card-title {
+  font-weight: bold;
+  @extend %sub-title;
 }

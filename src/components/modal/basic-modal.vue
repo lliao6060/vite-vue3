@@ -51,7 +51,7 @@
   @click.stop.self="toggleModal(false)"
 >
   <div
-    class="modal__inner align-center"
+    class="modal__inner align-center vrwd"
     :class="modalType"
   >
     <div class="ratio ratio-16x9 align-content-center">
@@ -61,7 +61,7 @@
       ></component>
     </div>
     <div
-      class="modal__inner--close-btn "
+      class="modal__inner--close-btn vrwd"
       @click="toggleModal(false)"
     >
       <span>&times;</span>
@@ -81,6 +81,7 @@
     background: #fff;
     text-align: center;
     border-radius: 15px;
+    @extend %inner-content;
     &--close-btn {
       position: absolute;
       top: -15px;
@@ -97,6 +98,7 @@
         margin-bottom: 10%;
         color: $dark;
       }
+      @extend %sub-title;
       @include RWD($sm-md) {
         right: -15px;
         width: 40px;

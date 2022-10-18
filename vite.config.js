@@ -99,6 +99,7 @@ export default defineConfig(({
         additionalData: `
         @import "@/assets/scss/_mixin.scss";
         @import "@/assets/scss/_palette.scss";
+        @import "@/assets/scss/_extend.scss";
       `
       }
     }

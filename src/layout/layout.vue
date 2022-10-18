@@ -23,15 +23,7 @@ import { mobileDevice } from '@/utils'
     margin-top: $navHeight;
     main {
       padding: 10px 0;
-      @include RWD($lg) {
-        --maju-vrwd: 11.2;
-      }
-      @include RWD($md-lg) {
-        --maju-vrwd: 15;
-      }
-      @include RWD($sm-md) {
-        --maju-vrwd: 25;
-      }
+      @extend %inner-content;
     }
     @include RWD($lg) {
       width: 95%;

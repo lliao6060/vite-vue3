@@ -5,12 +5,8 @@
   <div class="long-modal-content">
     <div class="d-grid grid-rows-2 h-100">
       <div class="long-modal-header rows-parent">
-        <div class="text-center header--title">
-          <h2>
-            標題
-            <br>
-            <span class="header-sub-title">副標題</span>
-          </h2>
+        <div class="text-center header--title vrwd">
+          <h2>標題</h2>
         </div>
         <div class="long-modal-depiction">
           敘述，到底是一種怎麽樣的存在。敘述的意義其實就隱藏在我們的生活中，所以說，經過上述討論，所謂敘述，關鍵是敘述需要如何寫。敘述因何而發生？其實敘述是非常值得我們深思的。
@@ -57,6 +53,7 @@
         color: $dark;
         border-bottom: 1px solid;
         @include flex;
+        @extend %sub-title;
       }
     }
   }
