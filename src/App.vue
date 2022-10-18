@@ -59,7 +59,6 @@ watch(route, () => {
   footer {
     @include flex;
     height: $navHeight;
-    background: lightblue;
   }
 
   footer {

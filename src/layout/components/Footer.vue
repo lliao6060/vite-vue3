@@ -8,4 +8,7 @@
 </template>
 
 <style lang="scss" scoped>
+footer {
+  background: lightblue;
+}
 </style>
