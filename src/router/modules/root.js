@@ -1,4 +1,4 @@
-export const rootRoutes = [
+const rootRoutes = [
   {
     path: "/",
     name: "Index",
@@ -8,3 +8,7 @@ export const rootRoutes = [
     },
   },
 ]
+
+export default {
+  routes: rootRoutes,
+}

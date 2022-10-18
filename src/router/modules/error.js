@@ -1,4 +1,4 @@
-export const errorRoutes = [
+const errorRoutes = [
   {
     path: '/404',
     name: 'PageNotExist',
@@ -12,3 +12,7 @@ export const errorRoutes = [
     redirect: '/404',
   }
 ]
+
+export default {
+  routes: errorRoutes,
+}

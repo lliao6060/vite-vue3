@@ -1,4 +1,4 @@
-export const compoRoutes = [
+const compoRoutes = [
   {
     path: '/compo',
     name: 'Components',
@@ -8,3 +8,7 @@ export const compoRoutes = [
     },
   },
 ]
+
+export default {
+  routes: compoRoutes,
+}

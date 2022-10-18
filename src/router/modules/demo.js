@@ -1,4 +1,4 @@
-export const demoRoute = [
+const demoRoute = [
   {
     path: '/demo/todo-list',
     name: 'TodoList',
@@ -56,3 +56,7 @@ export const demoRoute = [
     ]
   },
 ]
+
+export default {
+  routes: demoRoute,
+}
