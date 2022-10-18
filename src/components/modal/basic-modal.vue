@@ -61,7 +61,7 @@
       ></component>
     </div>
     <div
-      class="modal__inner--close-btn rwd-big-title"
+      class="modal__inner--close-btn "
       @click="toggleModal(false)"
     >
       <span>&times;</span>

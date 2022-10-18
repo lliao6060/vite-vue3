@@ -26,7 +26,7 @@ returnToNewsList()
 <template>
   <div 
     @click="$router.back()"
-    class="back-btn"
+    class="back-btn card-title"
   >回上頁</div>
   <div>{{ newsStore.nowNews }}</div>
 </template>

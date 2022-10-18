@@ -1,6 +1,6 @@
 <template>
   <div :class="['t-accordion-header', { 't-accordion-header--active': active }]">
-    <div class="t-accordion-header--title rwd-sub-title">
+    <div class="t-accordion-header--title ">
       <slot name="title">title</slot>
       <span :class="['t-accordion-header__icon', { rotated: active }]">
         <slot name="arrow">v</slot>

@@ -9,7 +9,7 @@
         @click="$router.push({
           name: 'NestedRoutesChild'
         })"
-        class="go-child-btn"
+        class="go-child-btn card-title"
       >Go子路由</a>
     </div>
     <router-view />

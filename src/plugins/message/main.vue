@@ -211,7 +211,6 @@ export default defineComponent({
   }
   &__content {
     padding: 0;
-    font-size: 14px;
     line-height: 1;
     &:focus {
       outline-width: 0;
@@ -224,7 +223,6 @@ export default defineComponent({
     transform: translateY(-50%);
     cursor: pointer;
     color: #c0c4cc;
-    font-size: 16px;
     &:focus {
       outline-width: 0;
     }

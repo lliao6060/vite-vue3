@@ -175,7 +175,6 @@
           margin: 5px 0;
           padding: 5px;
           border-radius: 5px;
-          font-size: 0.8rem;
           transition: all 0.4s;
 
           &:not(:nth-of-type(1)) {
@@ -211,13 +210,11 @@
         top: 50%;
         right: 5px;
         transform: translate(-50%, -50%);
-        font-size: 1.2rem;
         cursor: pointer;
       }
 
       .error-txt {
         width: 100%;
-        font-size: 0.8rem;
         color: red;
       }
     }
@@ -238,7 +235,6 @@
             top: 50%;
             right: 0;
             transform: translate(-50%, -50%);
-            font-size: 1.2rem;
           }
 
           &:not(:last-child) {
@@ -273,7 +269,6 @@
 
         .restore-btn {
           float: right;
-          font-size: 0.8rem;
           cursor: pointer;
         }
 

@@ -39,12 +39,16 @@ const toggleMenu = () => {
 }
 
 const backHome = () => {
-  showMenu.value = false
+  if(mobileDevice) {
+    showMenu.value = false
+  }
   router.push('/')
 }
 
 const handleRoute = (routeName) => {
-  showMenu.value = false
+  if(mobileDevice) {
+    showMenu.value = false
+  }
   router.push({
     name: routeName
   })
@@ -60,14 +64,15 @@ const handleRoute = (routeName) => {
       >LOGO</div>
       <nav
         v-show="showMenu"
-        class="navbar"
+        class="navbar card-title"
       >
         <div>
           <a
             v-for="routeItem in navList"
             :key="routeItem.routeName"
+            href="#"
             :class="{ 'active': routeItem.routeName === $route.name }"
-            @click="handleRoute(routeItem.routeName)"
+            @click.prevent="handleRoute(routeItem.routeName)"
           >{{ routeItem.name }}</a>
         </div>
       </nav>
@@ -92,19 +97,23 @@ const handleRoute = (routeName) => {
     @include flex;
     &__wrapper {
       width: 80%;
-      height: 60px;
+      height: $navHeight;
       margin: auto;
       @include flex($justify-content: space-between);
+      .logo-box {
+        cursor: pointer;
+      }
       .navbar {
         padding: 10px 0;
         @include flex;
         flex-wrap: wrap;
         >div {
           >a {
+            color: $dark;
+            text-decoration: none;
             padding: 10px;
             &.active {
               color: red;
-              font-weight: bold;
             }
             @include RWD($lg) {
               width: 100%;

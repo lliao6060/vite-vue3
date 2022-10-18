@@ -37,17 +37,10 @@
       min-height: 40px;
       padding: 10px;
       color: gray;
-      font-size: clamp(18px, 3vw, 20px);
       font-weight: bold;
       text-align: justify;
       line-height: 1.5;
       @include flex;
-      @include RWD($mini) {
-        font-size: clamp(16px, 3vw, 18px);
-      }
-      @include RWD($smallest) {
-        font-size: 15px;
-      }
       &:not(:last-child) {
         border-bottom: 1px solid;
       }
@@ -60,23 +53,10 @@
     }
     &.long-modal-header {
       .header--title {
-        font-size: clamp(25px, 3.75vw, 32px);
         font-weight: bold;
         color: $dark;
         border-bottom: 1px solid;
         @include flex;
-        .header-sub-title {
-          font-size: clamp(18px, 3vw, 20px);
-          @include RWD($mini) {
-            font-size: clamp(16px, 3vw, 18px);
-          }
-        }
-        @include RWD($sm-md) {
-          font-size: clamp(22px, 3.75vw, 25px);
-        }
-        @include RWD($mini) {
-          font-size: clamp(18px, 3.75vw, 21px);
-        }
       }
     }
   }

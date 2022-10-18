@@ -1,6 +1,20 @@
-:root {
-  --text-size: clamp(18px, 3.75vw, 20px);
-  --title-size: clamp(21px, 3.75vw, 23px);
-  --mobile-title-size: 19.5px;
-  --mobile-text-size: 16px;
+// :root {
+//   --text-size: clamp(18px, 3.75vw, 20px);
+//   --title-size: clamp(21px, 3.75vw, 23px);
+//   --mobile-title-size: 19.5px;
+//   --mobile-text-size: 16px;
+// }
+
+.card-title {
+  font-weight: bold;
+  --maju-vrwd: 16;
+  @include RWD($lg) {
+    --maju-vrwd: 13;
+  }
+  @include RWD($md-lg) {
+    --maju-vrwd: 17;
+  }
+  @include RWD($sm-md) {
+    --maju-vrwd: 28;
+  }
 }
