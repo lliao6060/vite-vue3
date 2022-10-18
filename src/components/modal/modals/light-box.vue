@@ -20,7 +20,6 @@
       :src="imageUrl"
       alt="lightbox-images"
     />
-    <figcaption>depiction</figcaption>
   </figure>
 </div>
 </template>
@@ -30,12 +29,16 @@
   figure {
     width: 100%;
     height: 100%;
-    padding: 25px;
+    padding: 25px 15px 15px;
     >img {
       display: block;
       width: 100%;
       height: 100%;
+      border-radius: 5px;
       object-fit: cover;
+    }
+    @include RWD($sm-md) {
+      padding: 25px 10px 10px;
     }
   }
 }

@@ -16,7 +16,7 @@
   "dependencies": {
     "axios": "^0.26.1",
     "file-saver": "^2.0.5",
-    "maju-ui": "^1.1.0",
+    "maju-ui": "^1.2.0",
     "pinia": "^2.0.11",
     "remockjs": "^0.1.0",
     "sass": "^1.44.0",

@@ -2928,10 +2928,10 @@ magic-string@^0.26.1:
   dependencies:
     sourcemap-codec "^1.4.8"
 
-maju-ui@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/maju-ui/-/maju-ui-1.1.0.tgz#12f526069db7c1ab9c52faf3b4f105763e83a442"
-  integrity sha512-Oo5l68v9FJCyDKPUlWToi6mFMJtX20usqUrL3XjhFOUrrXROKWMJh7tyTNh6idpcBa1pw4p2OYnk0QBabhjOug==
+maju-ui@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/maju-ui/-/maju-ui-1.2.0.tgz#ccf844d9ec11478a6c827b46e50ba6f22fa8b311"
+  integrity sha512-zevPlehoNTVGF6+At2bKwD28FMKiTJTh8yMyVI+2TeWnJKZ6zWFL7R/QxvD41isMWByfmxVwR6cQGjf4OawN0w==
   dependencies:
     gh-pages "^3.1.0"
     pnpm "^7.3.0"

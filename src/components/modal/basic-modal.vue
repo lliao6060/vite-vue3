@@ -50,7 +50,10 @@
   id="modal"
   @click.stop.self="toggleModal(false)"
 >
-  <div class="modal__inner align-center">
+  <div
+    class="modal__inner align-center"
+    :class="modalType"
+  >
     <div class="ratio ratio-16x9 align-content-center">
       <component
         :is="currentModal"
@@ -78,13 +81,9 @@
     background: #fff;
     text-align: center;
     border-radius: 15px;
-    top: 60%;
-    .ratio  {
-      height: 100%;
-    }
     &--close-btn {
       position: absolute;
-      top: -20px;
+      top: -15px;
       right: -15px;
       width: 44px;
       height: 44px;
@@ -99,44 +98,49 @@
         color: $dark;
       }
       @include RWD($sm-md) {
-        top: -25px;
         right: -15px;
         width: 40px;
         height: 40px;
       }
     }
-    @include min-width-RWD($xxl) {
-      @include safe-modal($base: 63vmin);
-      width: 68.605333vmin !important;
-      max-height: 65vh;
+    &:not(.longContent) {
+      height: auto !important;
+      @include RWD-min-with-max-width(1025, $xxl) {
+        @include safe-modal($base: 50vmin);
+      }
+      @include RWD($lg) {
+        @include safe-modal($base: 80vmin);
+      }
     }
+    &.longContent {
+      .ratio  {
+        height: 100%;
+      }
+      @include min-width-RWD($xxl) {
+        @include safe-modal($base: 40vmin);
+        height: 80vmin !important;
+      }
 
-    @include RWD-min-with-max-width(1281, 1440) {
-      width: 85.605333vmin !important;
-    }
+      @include RWD-min-with-max-width(1025, 1599) {
+        @include safe-modal($base: 50vmin);
+        height: 65vmin !important;
+      }
+      @include RWD($lg) {
+        @include safe-modal($base: 50vmin);
+      }
 
-    @include RWD-min-with-max-width(1025, 1280) {
-      width: 73.605333vmin !important;
-      height: 65vmin;
-    }
-    @include RWD($lg) {
-      top: 50%;
-      @include safe-modal($base: 75vmin);
-      max-width: 92vw;
-      max-height: 40vh;
-    }
+      @include RWD($md-lg) {
+        @include safe-modal($base: 58vmin);
+      }
 
-    @include RWD($md-lg) {
-      max-height: 50vh;
-    }
+      @include RWD($sm-md) {
+        @include safe-modal($base: 78vmin);
+      }
 
-    @include RWD($sm-md) {
-      @include safe-modal($base: 95vmin);
-      height: 130.08vmin !important;
-    }
-
-    @include RWD($smallest) {
-      height: 150.08vmin !important;
+      @include RWD($mini) {
+        top: 55%;
+        @include safe-modal($base: 80vmin);
+      }
     }
   }
 }
